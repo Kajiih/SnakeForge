@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Your favorite Python template 🐍"
 readme = "README.md"
 license-files = ["LICENSE"]
-requires-python = ">=3.14"
+requires-python = ">=3.13"
 keywords = ["copier", "python", "template", "copier-template"]
 authors = [{ name = "Kajih", email = "itskajih@gmail.com" }]
 classifiers = [
@@ -33,7 +33,7 @@ dependencies = ["copier>=9.7.1", "copier-templates-extensions>=0.3.1"]
     Changelog = "https://TODO"
 
 [dependency-groups]
-dev = ["codespell>=2.4.1", "djlint>=1.36.4", "ruff>=0.11.13"]
+dev = ["codespell>=2.4.1", "djlint>=1.36.4", "pytest>=8.4.0", "ruff>=0.11.13"]
 
 [tool.ruff] # https://docs.astral.sh/ruff/settings
 fix = true
@@ -95,6 +95,7 @@ extend-exclude = ["template", ".dev_references/"]
     ]
         [tool.ruff.lint.per-file-ignores]
         "tests/*" = [
+            "INP001",
             "SLF001",  # Private member accessed: `self._foo`
             "D100",    # Missing docstring in public module
             "D101",    # Missing docstring in public class

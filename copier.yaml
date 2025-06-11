@@ -40,11 +40,7 @@ _message_after_update: |
 project_name:
   type: str
   placeholder: MyAwesomeProject
-  help: "Enter the name of the project in PascalCase:"
-  # validator: >-
-  #   {% if not project_name | is_pascal_case %}
-  #   ERROR: Must be non-empty PascalCase (e.g., 'MyAwesomeProject')!
-  #   {% endif %}
+  help: "Enter the name of the project:"
   validator: >-
     {% if not project_name.strip() %}
     ERROR: Must not be empty
