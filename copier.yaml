@@ -13,10 +13,10 @@ _jinja_extensions:
   - extensions.py:CurrentYearExtension
   - extensions.py:GitConfigExtension
   - extensions.py:SlugifyExtension
-  - extensions.py:GitHubIDsforGiscusExtension
   - extensions.py:CodingCaseExtension
   - extensions.py:EmailValidationExtension
   - extensions.py:PackageNameExtension
+  - extensions.py:SemverExtension
 
 # === Messages ===
 _message_before_copy: |
@@ -247,9 +247,8 @@ max_py:
   default: "3.14"
   help: "Choose the maximal Python version the project should support:"
   choices: |
-    {% from "includes/semver_utils.jinja" import version_higher_than %}
     {% for version in python_versions %}
-      {% if version_higher_than(version, min_py) == "1" %}
+      {% if version | version_higher_than(min_py) %}
     - "{{ version }}"
       {% endif %}
     {% endfor %}
@@ -258,9 +257,8 @@ default_py:
   default: "{{ max_py }}"
   help: "Choose the default Python version for development, documentation generation, and package build:"
   choices: |
-    {% from "includes/semver_utils.jinja" import version_between %}
     {% for version in python_versions %}
-      {% if version_between(version, min_py, max_py) == "1" %}
+      {% if version | version_between(min_py, max_py) %}
     - "{{ version }}"
       {% endif %}
     {% endfor %}

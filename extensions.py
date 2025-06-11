@@ -137,3 +137,28 @@ class PackageNameExtension(Extension):
     def __init__(self, environment: Environment):
         super().__init__(environment)
         environment.filters["is_normalized_package_name"] = is_normalized_package_name  # pyright: ignore[reportArgumentType]
+
+
+def version_to_tuple(version: str) -> tuple[int, ...]:
+    """Convert version string to tuple of ints."""
+    return tuple(int(part) for part in version.split("."))
+
+
+def version_higher_than(version1: str, version2: str) -> bool:
+    """Return True if version1 > version2."""
+    return version_to_tuple(version1) > version_to_tuple(version2)
+
+
+def version_between(version: str, version_min: str, version_max: str) -> bool:
+    """Return True if version_min <= version <= version_max."""
+    v = version_to_tuple(version)
+    return version_to_tuple(version_min) <= v <= version_to_tuple(version_max)
+
+
+class SemverExtension(Extension):
+    """Semver filters."""
+
+    def __init__(self, environment: Environment):
+        super().__init__(environment)
+        environment.filters["version_higher_than"] = version_higher_than  # pyright: ignore[reportArgumentType]
+        environment.filters["version_between"] = version_between  # pyright: ignore[reportArgumentType]
