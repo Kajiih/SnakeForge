@@ -65,6 +65,9 @@ Unsure the following dependencies are installed:
 - dependabot
 - pypi
 - [Changelog](https://keepachangelog.com/en/1.1.0/)
+- Add proper testing with [this](https://github.com/KyleKing/copier-template-tester/tree/main/docs)
+- Add profiles like [this](https://github.com/NLeSC/python-**template**)
+- Add proper messages
 
 ## Advanced Usage
 

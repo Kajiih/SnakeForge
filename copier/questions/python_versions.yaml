@@ -1,0 +1,31 @@
+_jinja_extensions:
+  - extensions.py:SemverExtension
+
+python_versions: # Computed
+  default: ["3.9", "3.10", "3.11", "3.12", "3.13", "3.14"]
+  when: false
+min_py:
+  type: str
+  default: "3.12"
+  choices: "{{ python_versions }}"
+  help: "Choose the minimal Python version the project should support:"
+max_py:
+  type: str
+  default: "3.14"
+  help: "Choose the maximal Python version the project should support:"
+  choices: |
+    {% for version in python_versions %}
+      {% if version | version_higher_than(min_py) %}
+    - "{{ version }}"
+      {% endif %}
+    {% endfor %}
+default_py:
+  type: str
+  default: "{{ max_py }}"
+  help: "Choose the default Python version for development, documentation generation, and package build:"
+  choices: |
+    {% for version in python_versions %}
+      {% if version | version_between(min_py, max_py) %}
+    - "{{ version }}"
+      {% endif %}
+    {% endfor %}
