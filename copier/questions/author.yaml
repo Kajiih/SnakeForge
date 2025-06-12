@@ -34,6 +34,7 @@ organization_name:
     {% if not organization_name.strip() %}
     ERROR: Must not be empty
     {% endif %}
+  when: false # We can skip it most of the time
 copyright_holder:
   type: str
   help: Name(s) or organization(s) holding the copyright.

@@ -18,15 +18,6 @@ project_keywords:
   type: str
   help: "Provide a list of comma-separated keywords to be using in the Python package overview:"
   default: "python,{{ project_name | lower }}"
-development_status:
-  type: str
-  help: "Choose the development status:"
-  choices:
-    - Alpha
-    - Beta
-    - Production/Stable
-  default: Alpha
-  when: false
 project_version:
   type: str
   help: "Enter the current version of the project:"
