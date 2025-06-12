@@ -12,32 +12,32 @@ author_fullname:
     {% endif %}
 author_username:
   type: str
-  default: "{{ author_fullname | git_user_name }}"
   help: "Specify the username of the author:"
+  default: "{{ author_fullname | git_user_name }}"
   validator: >-
     {% if not author_username.strip() %}
     ERROR: Must not be empty
     {% endif %}
 author_email:
   type: str
-  default: '{{  {{ author_name | lower | replace(" ", ".") }}@{{ organization_name | lower | replace(" ", "-") }}.com | git_user_email }}'
   help: "Specify the email address of the author:"
+  default: '{{  {{ author_name | lower | replace(" ", ".") }}@{{ organization_name | lower | replace(" ", "-") }}.com | git_user_email }}'
   validator: >-
     {% if not author_email | is_valid_email %}
     ERROR: Must be a valid email address (e.g., johndoe@example.com)
     {% endif %}
 organization_name:
   type: str
-  default: "{{ author_fullname }}"
   help: "Provide the name of the organization associated with the project:"
+  default: "{{ author_fullname }}"
   validator: >-
     {% if not organization_name.strip() %}
     ERROR: Must not be empty
     {% endif %}
 copyright_holder:
   type: str
-  default: "{{ organization_name }}"
   help: Name(s) or organization(s) holding the copyright.
+  default: "{{ organization_name }}"
   validator: >-
     {% if not copyright_holder.strip() %}
     ERROR: Must not be empty

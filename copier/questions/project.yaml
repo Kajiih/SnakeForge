@@ -3,8 +3,8 @@ _jinja_extensions:
 
 project_name:
   type: str
-  placeholder: MyAwesomeProject
   help: "Enter the name of the project:"
+  placeholder: MyAwesomeProject
   validator: >-
     {% if not project_name.strip() %}
     ERROR: Must not be empty
@@ -12,38 +12,36 @@ project_name:
 
 project_description:
   type: str
-  placeholder: "{{ project_name }} is an awesome python project that also makes coffee ☕"
   help: "Provide a concise description to be used in the Python package overview and the introductory paragraph in the README and documentation's index page:"
+  placeholder: "{{ project_name }} is an awesome python project that also makes coffee ☕"
 project_keywords:
   type: str
-  default: "python,{{ project_name | lower }}"
   help: "Provide a list of comma-separated keywords to be using in the Python package overview:"
+  default: "python,{{ project_name | lower }}"
 development_status:
   type: str
-  default: Alpha
+  help: "Choose the development status:"
   choices:
     - Alpha
     - Beta
     - Production/Stable
-  help: "Choose the development status:"
+  default: Alpha
 
 copyright_license:
   type: str
-  default: MIT License
-  choices:
-    - Apache Software License
-    - Boost Software License 1.0 (BSL-1.0)
-    - GNU Affero General Public License v3
-    - GNU General Public License v3 (GPLv3)
-    - GNU Lesser General Public License v3 (LGPLv3)
-    - MIT License
-    - Mozilla Public License 2.0 (MPL 2.0)
-    - The Unlicense (Unlicense)
   help: Choose the project's license (e.g. "MIT", "GPL-3.0").
+  choices:
+    BSD Zero Clause License (0BSD):
+      value: 0BSD
+    Apache License 2.0 (Apache-2.0):
+      value: Apache-2.0
+    MIT License (MIT):
+      value: MIT
+  default: MIT
 copyright_year:
   type: str
-  default: "{{ CURRENT_YEAR }}"
   help: Enter the copyright year or range (e.g. "2022-2023").
+  default: "{{ CURRENT_YEAR }}"
   validator: >-
     {% if not copyright_year.strip() %}
     ERROR: Must not be empty

@@ -1,18 +1,20 @@
+# See specifications: https://packaging.python.org/en/latest/specifications/pyproject-toml/
 [build-system]
 requires = ["uv_build>=0.7.12,<0.8.0"]
 build-backend = "uv_build"
 
-
 [project]
-authors = [{ name = "TD", email = "TD" }]
-classifiers = ["TD"]
-name = "TD"
+name = "{{ package_name }}"
+description = "{{ project_description }}"
 version = "TD"
-description = "TD"
-requires-python = "TD"
-keywords = "TD"
+requires-python = ">={{ min_python_version }}"
+keywords = "{{ project_keywords }}"
 readme = "README.md"
-license-files = ["LICENSE"]
+license = "{{ copyright_license }}"
+license-files = ["LICENSE*"]
+
+classifiers = ["TD"]
+
 dependencies = []
 
     [project.urls]
@@ -25,6 +27,7 @@ dependencies = []
 [dependency-groups]
 dev = ["codespell>=2.4.1"]
 
+# === Tools ===
 [tool.ruff] # https://docs.astral.sh/ruff/settings
 fix = true
 preview = true

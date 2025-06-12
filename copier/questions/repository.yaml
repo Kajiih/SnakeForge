@@ -4,55 +4,55 @@ _jinja_extensions:
 
 repo_platform:
   type: str
-  default: github
+  help: "Choose the platform for the repository:"
   choices:
     GitHub: github
     GitLab: gitlab
     GitLab (self-managed): gitlab-self-managed
-  help: "Choose the platform for the repository:"
+  default: github
 repo_host:
   type: str
+  help: "Specify the host of the self-managed GitLab:"
   default: |-
     {% if repo_platform == 'github' %}
     github.com
     {%- elif repo_platform == 'gitlab' %}
     gitlab.com
     {%- endif %}
-  help: "Specify the host of the self-managed GitLab:"
   when: '{{ repo_platform == "gitlab-self-managed" }}'
 page_host:
   type: str
+  help: "Specify the host of the self-managed GitLab Pages:"
   default: |-
     {% if repo_platform == 'github' %}
     github.io
     {%- elif repo_platform == 'gitlab' %}
     gitlab.io
     {%- endif %}
-  help: "Specify the host of the self-managed GitLab Pages:"
   when: '{{ repo_platform == "gitlab-self-managed" }}'
 container_registry_host:
   type: str
+  help: "Specify the host of the self-managed GitLab Container Registry:"
   default: |-
     {% if repo_platform == 'github' %}
     ghcr.io
     {%- elif repo_platform == 'gitlab' %}
     registry.gitlab.com
     {%- endif %}
-  help: "Specify the host of the self-managed GitLab Container Registry:"
   when: '{{ repo_platform == "gitlab-self-managed" }}'
 
 repo_namespace: # TODO: Check if it's ok to have spaces
   type: str
-  default: "{{ organization_name | slugify('-') | git_user_name }}"
   help: "Indicate the GitHub Repository Owner or GitLab Namespace. This is typically the account name of the author or the organization:"
+  default: "{{ organization_name | slugify('-') | git_user_name }}"
   validator: >-
     {% if not repo_namespace.strip() %}
     ERROR: Must not be empty
     {% endif %}
 repo_name: # TODO: Check if it's ok to have spaces (enforce normalized names)
   type: str
-  default: "{{ project_name | slugify('-') }}"
   help: "Provide a name for the repository:"
+  default: "{{ project_name | slugify('-') }}"
   validator: >-
     {% if not repo_name.strip() %}
     ERROR: Must not be empty

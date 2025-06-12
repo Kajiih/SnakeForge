@@ -4,28 +4,28 @@ _jinja_extensions:
 python_versions: # Computed
   default: ["3.9", "3.10", "3.11", "3.12", "3.13", "3.14"]
   when: false
-min_py:
+min_python_version:
   type: str
-  default: "3.12"
-  choices: "{{ python_versions }}"
   help: "Choose the minimal Python version the project should support:"
-max_py:
+  choices: "{{ python_versions }}"
+  default: "3.12"
+max_python_version:
   type: str
-  default: "3.14"
   help: "Choose the maximal Python version the project should support:"
   choices: |
     {% for version in python_versions %}
-      {% if version | version_higher_than(min_py) %}
+      {% if version | version_higher_than(min_python_version) %}
     - "{{ version }}"
       {% endif %}
     {% endfor %}
+  default: "3.14"
 default_py:
   type: str
-  default: "{{ max_py }}"
   help: "Choose the default Python version for development, documentation generation, and package build:"
   choices: |
     {% for version in python_versions %}
-      {% if version | version_between(min_py, max_py) %}
+      {% if version | version_between(min_python_version, max_python_version) %}
     - "{{ version }}"
       {% endif %}
     {% endfor %}
+  default: "{{ max_python_version }}"
