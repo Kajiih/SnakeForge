@@ -29,7 +29,7 @@ development_status:
 
 copyright_license:
   type: str
-  help: Choose the project's license (e.g. "MIT", "GPL-3.0").
+  help: "Choose the project's license:"
   choices:
     BSD Zero Clause License (0BSD):
       value: 0BSD
@@ -40,7 +40,7 @@ copyright_license:
   default: MIT
 copyright_year:
   type: str
-  help: Enter the copyright year or range (e.g. "2022-2023").
+  help: 'Enter the copyright year or range (e.g. "2022-2023"):'
   default: "{{ CURRENT_YEAR }}"
   validator: >-
     {% if not copyright_year.strip() %}
