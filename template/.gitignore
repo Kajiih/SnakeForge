@@ -103,6 +103,3 @@ venv.bak/
 
 # Dev
 .old/
-
-# === Code embedding ===
-dev/readme_snippets/formatted/

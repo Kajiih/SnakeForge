@@ -1,7 +1,7 @@
 # See specifications: https://packaging.python.org/en/latest/specifications/pyproject-toml/
 [build-system]
-requires = ["uv_build>=0.7.12,<0.8.0"]
-build-backend = "uv_build"
+requires = ["hatchling", "uv-dynamic-versioning"]
+build-backend = "hatchling.build"
 
 [project]
 dynamic = ["version", "authors", "urls"]
@@ -25,9 +25,7 @@ classifiers = [
 {% else %}
     "Development Status :: 5 - Production/Stable",
 {% endif %}
-
     "License :: OSI Approved :: {{ copyright_license }}",  # This might not be a real PyPI classifier
-
 {% if "macos" in platforms %}
     "Operating System :: MacOS :: MacOS X",
 {% endif %}
@@ -40,10 +38,8 @@ classifiers = [
 {% if "macos" in platforms and "windows" in platforms and "linux" in platforms %}
     "Operating System :: OS Independent",
 {% endif %}
-
     "Intended Audience :: Developers",
     "Natural Language :: English",
-
     "Programming Language :: Python",
     "Programming Language :: Python :: 3 :: Only",
 {% for version in python_versions %}
@@ -58,7 +54,25 @@ dependencies = []
 [dependency-groups]
 dev = ["codespell>=2.4.1"]
 
+# https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#creating-executable-scripts
+[project.scripts]
+{{ cli_name }} = "{{ module_name }}:main_cli"
+
+
 # === Tools ===
+[tool.hatch.version]
+source = "uv-dynamic-versioning"
+[tool.hatch.build.hooks.version]
+path = "src/{{ module_name }}/__version.py"
+template = '''
+version = "{version}"
+'''
+# see: https://github.com/ninoseki/uv-dynamic-versioning/blob/main/docs/tips.md
+[tool.uv-dynamic-versioning]
+fallback-version = "0.0.0"
+[tool.hatch.metadata.hooks.custom] # Enables custom hooks for dynamic metadata
+
+
 [tool.ruff] # https://docs.astral.sh/ruff/settings
 fix = true
 preview = true

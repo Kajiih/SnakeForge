@@ -31,12 +31,12 @@ copyright_license:
   type: str
   help: "Choose the project's license:"
   choices:
+    MIT License (MIT):
+      value: MIT
     BSD Zero Clause License (0BSD):
       value: 0BSD
     Apache License 2.0 (Apache-2.0):
       value: Apache-2.0
-    MIT License (MIT):
-      value: MIT
   default: MIT
 copyright_year:
   type: str

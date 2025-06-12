@@ -146,7 +146,7 @@ def version_to_tuple(version: str) -> tuple[int, ...]:
 
 def version_higher_than(version1: str, version2: str) -> bool:
     """Return True if version1 > version2."""
-    return version_to_tuple(version1) > version_to_tuple(version2)
+    return version_to_tuple(version1) >= version_to_tuple(version2)
 
 
 def version_between(version: str, version_min: str, version_max: str) -> bool:

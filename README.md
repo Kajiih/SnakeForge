@@ -68,6 +68,7 @@ Unsure the following dependencies are installed:
 - Add proper testing with [this](https://github.com/KyleKing/copier-template-tester/tree/main/docs)
 - Add profiles like [this](https://github.com/NLeSC/python-**template**)
 - Add proper messages
+- Replace `uv-dynamic-version` with the features from [commitizen](https://github.com/commitizen-tools/commitizen) (and also changelog)
 
 ## Advanced Usage
 

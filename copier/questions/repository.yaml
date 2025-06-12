@@ -43,7 +43,7 @@ container_registry_host:
 
 repo_namespace: # TODO: Check if it's ok to have spaces
   type: str
-  help: "Indicate the GitHub Repository Owner or GitLab Namespace. This is typically the account name of the author or the organization:"
+  help: "Indicate the GitHub Repository owner/namespace (e.g., https://{{ repo_platform }}.com/<namespace>):"
   default: "{{ organization_name | slugify('-') | git_user_name }}"
   validator: >-
     {% if not repo_namespace.strip() %}
@@ -57,3 +57,8 @@ repo_name: # TODO: Check if it's ok to have spaces (enforce normalized names)
     {% if not repo_name.strip() %}
     ERROR: Must not be empty
     {% endif %}
+
+repo_url: # Computed
+  type: str
+  default: "https://{{ repo_platform }}.com/{{ repo_namespace }}/{{ repo_name }}"
+  when: false
