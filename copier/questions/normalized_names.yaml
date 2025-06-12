@@ -3,7 +3,7 @@ _jinja_extensions:
   - extensions.py:PackageNameExtension
 
 # {# djlint:off H025 #}
-package_name:
+package_name: # Also used as a slug
   type: str
   help: 'Specify the name of the distributable package for the project (often used in "pip install <package_name>"):'
   default: '{{ repo_name | lower | regex_replace("-python$", "") }}'
@@ -12,36 +12,20 @@ package_name:
     ERROR: You should use be a normalized (kebab-case) package name (e.g., 'my-awesome-project')
     see https://packaging.python.org/en/latest/specifications/name-normalization/#name-normalization
     {% endif %}
-module_name:
+module_name: # TODO: Change default to remove numbers (or map them to text)
   type: str
   help: 'Specify the name of the primary module within the package (often used in "import <module_name>"):'
   default: '{{ package_name | replace("-", "_") }}'
   validator: >-
     {% if not module_name | is_snake_case %}
-    ERROR: Must be in snake_case (e.g., 'my_awesome_project')!
+    ERROR: Must be in snake_case without numbers (e.g., 'my_awesome_project')!
     {% endif %}
-cli_name:
+cli_name: # TODO: Change default to remove numbers (or map them to text)
   type: str
   help: "Specify the name of the CLI tool:"
   default: "{{ package_name }}"
   validator: >-
     {% if not cli_name | is_kebab_case %}
-    ERROR: Must be in kebab_case (e.g., 'my-awesome-project')!
+    ERROR: Must be in kebab_case without numbers (e.g., 'my-awesome-project')!
     {% endif %}
   # {# djlint:on #}
-
-coverage_threshold:
-  type: int
-  help: "Set the threshold for test coverage, ranging from 0 to 100:"
-  default: 80
-  validator: >-
-    {% if not 0 <= coverage_threshold <= 100 %}Test Coverage threshold should be between 0 and 100{% endif %}
-platforms:
-  type: str
-  help: "Set the supported platforms for the project:"
-  default: ["macos", "linux", "windows"]
-  choices:
-    - macos
-    - linux
-    - windows
-  multiselect: true

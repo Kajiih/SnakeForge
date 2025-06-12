@@ -20,6 +20,8 @@ _jinja_extensions:
 ---
 !include copier/questions/normalized_names.yaml
 ---
+!include copier/questions/misc.yaml
+---
 # global flags
 # !include copier/global_flags.yaml
 ---
