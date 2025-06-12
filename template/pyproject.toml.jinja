@@ -4,25 +4,56 @@ requires = ["uv_build>=0.7.12,<0.8.0"]
 build-backend = "uv_build"
 
 [project]
+dynamic = ["version", "authors", "urls"]
 name = "{{ package_name }}"
 description = "{{ project_description }}"
-version = "TD"
 requires-python = ">={{ min_python_version }}"
-keywords = "{{ project_keywords }}"
+keywords = [
+{% set keywords = (project_keywords.split(",") | map("trim") | list) %}
+{% for keyword in keywords %}
+    "{{ keyword }}",
+{% endfor %}
+]
 readme = "README.md"
 license = "{{ copyright_license }}"
 license-files = ["LICENSE*"]
 
-classifiers = ["TD"]
+# List of classifiers: https://pypi.org/classifiers/
+classifiers = [
+{% if project_version.startswith("0.") %}
+    "Development Status :: 2 - Pre-Alpha",
+{% else %}
+    "Development Status :: 5 - Production/Stable",
+{% endif %}
+
+    "License :: OSI Approved :: {{ copyright_license }}",  # This might not be a real PyPI classifier
+
+{% if "macos" in platforms %}
+    "Operating System :: MacOS :: MacOS X",
+{% endif %}
+{% if "windows" in platforms %}
+    "Operating System :: Microsoft :: Windows",
+{% endif %}
+{% if "linux" in platforms %}
+    "Operating System :: POSIX :: Linux",
+{% endif %}
+{% if "macos" in platforms and "windows" in platforms and "linux" in platforms %}
+    "Operating System :: OS Independent",
+{% endif %}
+
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3 :: Only",
+{% for version in python_versions %}
+    {% if version | version_between(min_python_version, max_python_version) %}
+    "Programming Language :: Python :: {{ version }}",
+    {% endif %}
+{% endfor %}
+]
 
 dependencies = []
-
-    [project.urls]
-    Homepage = "https://TODO"
-    Documentation = "https://TODO"
-    Repository = "https://TODO"
-    Issues = "https://TODO"
-    Changelog = "https://TODO"
 
 [dependency-groups]
 dev = ["codespell>=2.4.1"]
