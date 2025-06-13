@@ -6,12 +6,12 @@ python_versions: # Computed
   when: false
 min_python_version:
   type: str
-  help: "Choose the minimal Python version the project should support:"
+  help: "Minimal supported Python version:"
   choices: "{{ python_versions }}"
   default: "3.12"
 max_python_version:
   type: str
-  help: "Choose the maximal Python version the project should support:"
+  help: "Maximal supported Python version:"
   choices: |
     {% for version in python_versions %}
       {% if version | version_higher_than(min_python_version) %}
@@ -21,7 +21,7 @@ max_python_version:
   default: "3.14"
 default_py:
   type: str
-  help: "Choose the default Python version for development, documentation generation, and package build:"
+  help: "Default Python version for development, documentation generation, and package build:"
   choices: |
     {% for version in python_versions %}
       {% if version | version_between(min_python_version, max_python_version) %}

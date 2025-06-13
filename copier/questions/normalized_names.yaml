@@ -5,7 +5,7 @@ _jinja_extensions:
 # {# djlint:off H025 #}
 package_name: # Also used as a slug
   type: str
-  help: 'Specify the name of the distributable package for the project (often used in "pip install <package_name>"):'
+  help: 'Name of the distributable package for the project ("pip install <package_name>"):'
   default: '{{ repo_name | lower | regex_replace("-python$", "") }}'
   validator: >-
     {% if not package_name | is_normalized_package_name %}
@@ -14,7 +14,7 @@ package_name: # Also used as a slug
     {% endif %}
 module_name: # TODO: Change default to remove numbers (or map them to text)
   type: str
-  help: 'Specify the name of the primary module within the package (often used in "import <module_name>"):'
+  help: 'Name of the primary module within the package ("import <module_name>"):'
   default: '{{ package_name | replace("-", "_") }}'
   validator: >-
     {% if not module_name | is_snake_case %}
@@ -22,7 +22,7 @@ module_name: # TODO: Change default to remove numbers (or map them to text)
     {% endif %}
 cli_name: # TODO: Change default to remove numbers (or map them to text)
   type: str
-  help: "Specify the name of the CLI tool:"
+  help: "Name of the CLI tool:"
   default: "{{ package_name }}"
   validator: >-
     {% if not cli_name | is_kebab_case %}

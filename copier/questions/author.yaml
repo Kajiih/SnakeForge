@@ -4,40 +4,41 @@ _jinja_extensions:
 
 author_fullname:
   type: str
-  help: "Specify the full name of the author:"
+  help: "Author's fullname:"
   default: "{{ 'John Doe' | git_user_name }}"
   validator: >-
     {% if not author_fullname.strip() %}
     ERROR: Must not be empty
     {% endif %}
-author_username:
-  type: str
-  help: "Specify the username of the author:"
-  default: "{{ author_fullname | git_user_name }}"
-  validator: >-
-    {% if not author_username.strip() %}
-    ERROR: Must not be empty
-    {% endif %}
+# author_username:
+#   type: str
+#   help: "Specify the username of the author:"
+#   default: "{{ author_fullname | git_user_name }}"
+#   validator: >-
+#     {% if not author_username.strip() %}
+#     ERROR: Must not be empty
+#     {% endif %}
 author_email:
   type: str
-  help: "Specify the email address of the author:"
-  default: '{{  {{ author_name | lower | replace(" ", ".") }}@{{ organization_name | lower | replace(" ", "-") }}.com | git_user_email }}'
+  help: "Author's email:"
+
+  default: '{{  {{ author_fullname | lower | replace(" ", ".") }}@example.com | git_user_email }}'
   validator: >-
     {% if not author_email | is_valid_email %}
     ERROR: Must be a valid email address (e.g., johndoe@example.com)
     {% endif %}
-organization_name:
+organization_name: # We can skip it most of the time
   type: str
-  help: "Provide the name of the organization associated with the project:"
+  help: "Organization associated with the project:"
   default: "{{ author_fullname }}"
   validator: >-
     {% if not organization_name.strip() %}
     ERROR: Must not be empty
     {% endif %}
-  when: false # We can skip it most of the time
+  when: false
 copyright_holder:
   type: str
-  help: Name(s) or organization(s) holding the copyright.
+  help: Organization(s) holding the copyright.
   default: "{{ organization_name }}"
   validator: >-
     {% if not copyright_holder.strip() %}

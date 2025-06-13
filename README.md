@@ -1,11 +1,23 @@
+<p align="center">
+    <em>SnakeForge, the opinionated Python template that gives you what you need, and not more.</em>
+</p>
 
-# Your favorite python project template
+# Your favorite template for Python projects 🐍
+
+## ✨ Features
+
+- `GitHub` hosted repo and CI/CD workflows for
+- `uv` managed dependencies and virtual environment
+- Hardcore `Ruff` linting and formatting
+- Static type testing with `ty`, yes we love [astral](https://astral.sh/)
+- Dynamic project metadata with `hatch` and `hatchling` build backend
+- `Markdown` documentation inspired by [FastAPI](https://fastapi.tiangolo.com/) and [Typer](https://typer.tiangolo.com/)
 
 ## Contents <!-- omit from toc -->
 
+- [✨ Features](#-features)
 - [📋 Requirements](#-requirements)
 - [🚀 Quickstart](#-quickstart)
-- [✨ Features](#-features)
   - [Roadmap](#roadmap)
 - [Advanced Usage](#advanced-usage)
   - [Update your project](#update-your-project)
@@ -43,13 +55,6 @@ Unsure the following dependencies are installed:
     Follow the instructions displayed at the end of the generation process to initialize Git, create the GitHub repository, and set up the virtual environment
 
 4. **Start coding your awesome package!**
-
-## ✨ Features
-
-- Automatically setups GitHub repository and virtual environment with `uv`
-- Configurations for `Ruff`, `Pytest`, `pytest-coverage`
-- Dynamic project metadata with `hatch`
-- Documentation and Readme template inspired by [FastAPI](https://fastapi.tiangolo.com/) and [Typer](https://typer.tiangolo.com/)
 
 ### Roadmap
 

@@ -1,12 +1,12 @@
 coverage_threshold:
   type: int
-  help: "Set the threshold for test coverage, ranging from 0 to 100:"
+  help: "Coverage threshold, from 0 to 100:"
   default: 80
   validator: >-
     {% if not 0 <= coverage_threshold <= 100 %}Test Coverage threshold should be between 0 and 100{% endif %}
 platforms:
   type: str
-  help: "Set the supported platforms for the project:"
+  help: "Supported platforms:"
   default: ["macos", "linux", "windows"]
   choices:
     - macos

@@ -3,7 +3,7 @@ _jinja_extensions:
 
 project_name:
   type: str
-  help: "Enter the name of the project:"
+  help: "Project's name:"
   placeholder: MyAwesomeProject
   validator: >-
     {% if not project_name.strip() %}
@@ -11,7 +11,8 @@ project_name:
     {% endif %}
 tmp_project_emoji:
   type: str
-  help: "Enter an emoji representing the project (nothing for no emoji):"
+  help: "Emoji representing the project (empty for no emoji):"
+  default: ""
 project_emoji: # Computed to add a space after the emoji if not empty
   type: str
   default: "{{ tmp_project_emoji + ' ' if tmp_project_emoji }}"
@@ -19,15 +20,15 @@ project_emoji: # Computed to add a space after the emoji if not empty
 
 project_description:
   type: str
-  help: "Provide a concise description to be used in the Python package overview and the introductory paragraph in the README and documentation's index page:"
-  placeholder: "{{ project_name }} is an awesome python project that also makes coffee ☕"
+  help: "Short and punchy description of the project:"
+  placeholder: "{{ project_name }}, the awesome python project that also makes coffee ☕"
 project_keywords:
   type: str
-  help: "Provide a list of comma-separated keywords to be using in the Python package overview:"
+  help: "Comma-separated keywords:"
   default: "python,{{ project_name | lower }}"
 project_version:
   type: str
-  help: "Enter the current version of the project:"
+  help: "Current version of the project:"
   default: "0.1.0"
   validator: >-
     {% if not (project_version | regex_search('^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$')) %}
@@ -36,7 +37,7 @@ project_version:
 
 copyright_license:
   type: str
-  help: "Choose the project's license:"
+  help: "Project's license:"
   choices:
     MIT License (MIT):
       value: MIT
@@ -47,7 +48,7 @@ copyright_license:
   default: MIT
 copyright_year:
   type: str
-  help: 'Enter the copyright year or range (e.g. "2022-2023"):'
+  help: 'Copyright year or range (e.g. "2022-2023"):'
   default: "{{ CURRENT_YEAR }}"
   validator: >-
     {% if not copyright_year.strip() %}
