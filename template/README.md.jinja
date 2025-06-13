@@ -1,0 +1,77 @@
+<!-- Your awesome logo here -->
+<p align="center">
+<a href="{{ project_homepage }}"><img alt="{{ project_name }}" src="https://www.python.org/static/community_logos/python-logo-generic.svg"/></a>
+</p>
+
+<p align="center">
+    <em>{{ project_description }}</em>
+</p>
+<!-- 4 to 5 badges max -->
+<p align="center">
+<a href="{{ repo_url }}/actions?query=workflow%3ATest" target="_blank">
+    <img src="{{ repo_url }}/workflows/Test/badge.svg" alt="Test">
+</a>
+<a href="{{ repo_url }}/actions?query=workflow%3APublish" target="_blank">
+    <img src="{{ repo_url }}/workflows/Publish/badge.svg" alt="Publish">
+</a>
+<a href="https://codecov.io/github/{{ repo_namespace }}/{{ repo_name }}" target="_blank">
+    <img src="https://img.shields.io/codecov/c/github/{{ repo_namespace }}/{{ repo_name }}" alt="Coverage">
+<a href="https://pypi.org/project/{{ package_name }}" target="_blank">
+    <img src="https://img.shields.io/pypi/v/{{ package_name }}" alt="Package version">
+</a>
+<a href="https://pypi.org/project/{{ package_name }}" target="_blank">
+    <img src="https://img.shields.io/pypi/pyversions/{{ package_name }}" alt="Supported Python versions">
+</a>
+</p>
+
+---
+
+**Documentation**: <{{ documentation_url }}>
+
+**Source Code**: <{{ repo_url }}>
+
+---
+
+<!--
+One paragraph describing the project:
+- First, one or 2 sentences to describe the project (it's the first thing that
+appears in a search engine below the link)
+- Then, after a line break a description af the features explaining what it does etc
+
+Example:
+{{ project_name }} is a tool/app/library for ....
+
+The key features are:
+
+- ...
+- ...
+- ...
+
+-->
+
+# {{ project_emoji }}{{ project_name }} <!-- You can add a punchline here -->
+
+## ⬇️ Installation
+
+We recommend you use [uv](https://docs.astral.sh/uv/) to install packages from PyPI:
+
+```bash
+uv add {{ package_name }}
+```
+
+Then import the module in your code:
+
+```python
+import {{ module_name }}
+```
+
+## 🧩 Example
+
+Embed code like this:
+
+```python:dev/readme_snippets/formatted/code_embedding_demo.py
+```
+
+Add a `# snippet: no-exec` comment to not execute the line when formatting the snippet prints (useful for when a user input would be required).
+
+❗**You have to manually add extras (any external package) used in snippet in the github workflow. Check the [workflow file](/.github/workflows/code-embedder.yaml)**

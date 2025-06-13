@@ -49,6 +49,7 @@ Unsure the following dependencies are installed:
 - Automatically setups GitHub repository and virtual environment with `uv`
 - Configurations for `Ruff`, `Pytest`, `pytest-coverage`
 - Dynamic project metadata with `hatch`
+- Documentation and Readme template inspired by [FastAPI](https://fastapi.tiangolo.com/) and [Typer](https://typer.tiangolo.com/)
 
 ### Roadmap
 
@@ -69,6 +70,8 @@ Unsure the following dependencies are installed:
 - Add profiles like [this](https://github.com/NLeSC/python-**template**)
 - Add proper messages
 - Replace `uv-dynamic-version` with the features from [commitizen](https://github.com/commitizen-tools/commitizen) (and also changelog)
+- Add contributors: <https://github.com/all-contributors/all-contributors>
+- Make print embbeder a separate action/package, and ask to include it
 
 ## Advanced Usage
 
