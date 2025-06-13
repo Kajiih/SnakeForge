@@ -9,6 +9,13 @@ project_name:
     {% if not project_name.strip() %}
     ERROR: Must not be empty
     {% endif %}
+tmp_project_emoji:
+  type: str
+  help: "Enter an emoji representing the project (nothing for no emoji):"
+project_emoji: # Computed to add a space after the emoji if not empty
+  type: str
+  default: "{{ tmp_project_emoji + ' ' if tmp_project_emoji }}"
+  when: false
 
 project_description:
   type: str
