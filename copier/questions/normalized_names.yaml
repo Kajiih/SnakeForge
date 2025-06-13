@@ -29,3 +29,8 @@ cli_name: # TODO: Change default to remove numbers (or map them to text)
     ERROR: Must be in kebab_case without numbers (e.g., 'my-awesome-project')!
     {% endif %}
   # {# djlint:on #}
+
+documentation_url: # Computed
+  type: str
+  default: "https://{{ package_name }}.readthedocs.io"
+  when: false

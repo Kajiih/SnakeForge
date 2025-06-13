@@ -2,7 +2,7 @@ _jinja_extensions:
   - extensions.py:GitConfigExtension
   - extensions.py:SlugifyExtension
 
-repo_platform:
+repo_platform: # Skipped, only supports GitHub for now
   type: str
   help: "Choose the platform for the repository:"
   choices:
@@ -10,6 +10,7 @@ repo_platform:
     GitLab: gitlab
     GitLab (self-managed): gitlab-self-managed
   default: github
+  when: false
 repo_host:
   type: str
   help: "Specify the host of the self-managed GitLab:"
@@ -62,3 +63,12 @@ repo_url: # Computed
   type: str
   default: "https://{{ repo_platform }}.com/{{ repo_namespace }}/{{ repo_name }}"
   when: false
+
+homepage_url:
+  type: str
+  help: "Project's homepage url:"
+  default: "{{ repo_url }}"
+  validator: >-
+    {% if not homepage_url.strip() %}
+    ERROR: Must not be empty
+    {% endif %}
