@@ -63,7 +63,7 @@ Unsure the following dependencies are installed:
 - Replace `hatch` with `uv` (one day)
 - use `ty` as type checker, yes we love [astral.sh](https://astral.sh/) stuff..!
 - us devcontainer
-- docs template with mkdocs
+- docs template with mkdocs, also check [mdbook](https://rust-lang.github.io/mdBook/)
 - github actions
 - issue template
 - docker setup

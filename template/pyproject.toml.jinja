@@ -47,7 +47,7 @@ classifiers = [
 dependencies = []
 
 [dependency-groups]
-dev = ["hatchling"]
+dev = ["hatchling", "pre-commit"]
 
 # https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#creating-executable-scripts
 [project.scripts]
@@ -149,3 +149,8 @@ extend-include = ["*.ipynb"]
 
         [tool.ruff.lint.flake8-import-conventions.extend-aliases]
         "typed_settings" = "ts"
+
+
+[tool.codespell]
+write-changes = true
+check-filenames = true
