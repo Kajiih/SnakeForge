@@ -2,7 +2,7 @@ _jinja_extensions:
   - extensions.py:SemverExtension
 
 python_versions: # Computed
-  default: ["3.9", "3.10", "3.11", "3.12", "3.13", "3.14"]
+  default: ["3.9", "3.10", "3.11", "3.12", "3.13"] # TODO: Add 3.14 when uv-dynamic-versioning supports it: https://github.com/ninoseki/uv-dynamic-versioning/pull/48
   when: false
 min_python_version:
   type: str
@@ -18,8 +18,8 @@ max_python_version:
     - "{{ version }}"
       {% endif %}
     {% endfor %}
-  default: "3.14"
-default_py:
+  default: "{{ python_versions[-1] }}"
+default_python_version:
   type: str
   help: "Default Python version for development, documentation generation, and package build:"
   choices: |

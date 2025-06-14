@@ -25,7 +25,6 @@ classifiers = [
 {% else %}
     "Development Status :: 5 - Production/Stable",
 {% endif %}
-    "License :: OSI Approved :: {{ copyright_license }}",  # This might not be a real PyPI classifier
 {% if "macos" in platforms %}
     "Operating System :: MacOS :: MacOS X",
 {% endif %}
@@ -52,7 +51,7 @@ classifiers = [
 dependencies = []
 
 [dependency-groups]
-dev = ["codespell>=2.4.1", "hatchling"]
+dev = []
 
 # https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#creating-executable-scripts
 [project.scripts]
@@ -151,8 +150,3 @@ extend-include = ["*.ipynb"]
 
         [tool.ruff.lint.flake8-import-conventions.extend-aliases]
         "typed_settings" = "ts"
-
-
-[tool.codespell]
-write-changes = true
-check-filenames = true
