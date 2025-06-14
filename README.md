@@ -28,7 +28,7 @@
 Unsure the following dependencies are installed:
 
 - Python>=3.12
-- [Copier](https://copier.readthedocs.io/en/stable/)
+- [Copier](https://copier.readthedocs.io/en/stable/) with [copier_templates_extensions](https://github.com/copier-org/copier-templates-extensions)
 - [Git](https://git-scm.com/downloads)
 - [GitHub CLI (gh)](https://cli.github.com/)
 - [uv](https://docs.astral.sh/uv/getting-started/installation/)
@@ -58,7 +58,9 @@ Unsure the following dependencies are installed:
 
 ### Roadmap
 
-- Replace `hatch` with `uv`
+- solve dynamic versioning with tags
+- add license classifiers in `pyproject.tom`l
+- Replace `hatch` with `uv` (one day)
 - use `ty` as type checker, yes we love [astral.sh](https://astral.sh/) stuff..!
 - us devcontainer
 - docs template with mkdocs

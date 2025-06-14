@@ -25,6 +25,8 @@ _jinja_extensions:
 # global flags
 # !include copier/global_flags.yaml
 ---
+!include copier/tasks.yaml
+---
 # User messages
 # TODO: Update messages
-# !include copier/messages.yaml
+!include copier/messages.yaml

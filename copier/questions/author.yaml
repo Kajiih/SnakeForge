@@ -38,7 +38,7 @@ organization_name: # We can skip it most of the time
   when: false
 copyright_holder:
   type: str
-  help: Organization(s) holding the copyright.
+  help: Entity(ies) holding the copyright.
   default: "{{ organization_name }}"
   validator: >-
     {% if not copyright_holder.strip() %}

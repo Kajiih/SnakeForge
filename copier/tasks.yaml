@@ -1,0 +1,32 @@
+_tasks:
+  - command: [echo, task run when copy]
+    when: "{{ _copier_operation == 'copy' }}"
+  - command: "echo 'task run when update'"
+    when: "{{ _copier_operation == 'update' }}"
+  # Create virtual environment
+  - command: [uv, venv, "--python={{ default_python_version }}"]
+    when: "{{ _copier_operation == 'copy' }}"
+  - command: [uv, sync, --all-extras, --all-groups]
+    when: "{{ _copier_operation == 'copy' }}"
+  # Initialize git repo
+  - command: [git, init, --initial-branch=main]
+    when: "{{ _copier_operation == 'copy' }}"
+  # Create GitHub repo
+  - command:
+      [
+        gh,
+        repo,
+        create,
+        "{{ repo_name }}",
+        --public,
+        "--description={{ project_description }}",
+        --source=.,
+        "--homepage={{ homepage_url }}",
+        "--disable-wiki",
+      ]
+    when: "{{ _copier_operation == 'copy' }}"
+  - command: [git, add, -A]
+    when: "{{ _copier_operation == 'copy' }}"
+  - command: [git, commit, --all, -m="🚀 Create project from template"]
+    when: "{{ _copier_operation == 'copy' }}"
+  # TODO : Print hint to remind to activate the virtual environment (grep the output from uv venv above to have the correct command to use, or use the dedicated command if this feature request is accepted: https://github.com/astral-sh/uv/issues/14038)
