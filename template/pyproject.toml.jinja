@@ -1,8 +1,4 @@
 # See specifications: https://packaging.python.org/en/latest/specifications/pyproject-toml/
-[build-system]
-requires = ["hatchling", "uv-dynamic-versioning"]
-build-backend = "hatchling.build"
-
 [project]
 dynamic = ["version", "authors", "urls"]
 name = "{{ package_name }}"
@@ -51,27 +47,30 @@ classifiers = [
 dependencies = []
 
 [dependency-groups]
-dev = []
+dev = ["hatchling"]
 
 # https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#creating-executable-scripts
 [project.scripts]
 {{ cli_name }} = "{{ module_name }}:main_cli"
 
 
-# === Tools ===
+# === Build ===
+[build-system]
+requires = ["hatchling", "uv-dynamic-versioning"]
+build-backend = "hatchling.build"
+
 [tool.hatch.version]
 source = "uv-dynamic-versioning"
 [tool.hatch.build.hooks.version]
-path = "src/{{ module_name }}/__version.py"
-template = '''
-version = "{version}"
-'''
+path = "src/{{ module_name }}/__about__.py"
+pattern = true
 # see: https://github.com/ninoseki/uv-dynamic-versioning/blob/main/docs/tips.md
 [tool.uv-dynamic-versioning]
 fallback-version = "0.0.0"
 [tool.hatch.metadata.hooks.custom] # Enables custom hooks for dynamic metadata
 
 
+# === Tools ===
 [tool.ruff] # https://docs.astral.sh/ruff/settings
 fix = true
 preview = true
