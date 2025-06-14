@@ -9,9 +9,9 @@ _message_before_copy: |
   input to each of them.
 
 _message_after_copy: |
-  Your project "{{ package_name }}" has been successfully created in {{ _copier_conf.dst_path }}!
 
-  Don't forget to activate your virtual environment (e.g. `source .venv/bin/activate`)
+  {{ "\033[1;32m" }}✅ Your project "{{ project_name }}" has been successfully created in {{ _copier_conf.dst_path }}!{{ "\033[0m" }}
+  {{ "\033[1;36m" }}Don't forget to activate your virtual environment (look for the "Activate with:" line in the logs of the `uv venv ...` task).{{ "\033[0m" }}
 
 _message_before_update: |
   Thanks for updating your project using our template.
