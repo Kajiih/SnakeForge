@@ -25,4 +25,6 @@ _tasks:
     when: "{{ _copier_operation == 'copy' }}"
   - command: [git, commit, --all, -m="🚀 Create project from template"]
     when: "{{ _copier_operation == 'copy' }}"
+  - command: [git, push]
+    when: "{{ _copier_operation == 'copy' }}"
   # TODO : Print hint to remind to activate the virtual environment (grep the output from uv venv above to have the correct command to use, or use the dedicated command if this feature request is accepted: https://github.com/astral-sh/uv/issues/14038)
