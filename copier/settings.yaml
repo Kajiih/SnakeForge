@@ -3,6 +3,5 @@ _envops:
   trim_blocks: true
 
 _subdirectory: template
-_answers_file: .copier-answers.yaml
 _skip_if_exists:
   - CHANGELOG.md
