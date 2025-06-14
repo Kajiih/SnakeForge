@@ -16,23 +16,20 @@ license-files = ["LICENSE*"]
 
 # List of classifiers: https://pypi.org/classifiers/
 classifiers = [
-{% if project_version.startswith("0.") %}
     "Development Status :: 2 - Pre-Alpha",
-{% else %}
-    "Development Status :: 5 - Production/Stable",
-{% endif %}
-{% if "macos" in platforms %}
-    "Operating System :: MacOS :: MacOS X",
-{% endif %}
-{% if "windows" in platforms %}
-    "Operating System :: Microsoft :: Windows",
-{% endif %}
-{% if "linux" in platforms %}
-    "Operating System :: POSIX :: Linux",
-{% endif %}
-{% if "macos" in platforms and "windows" in platforms and "linux" in platforms %}
+    {% if "macos" in platforms and "windows" in platforms and "linux" in platforms %}
     "Operating System :: OS Independent",
-{% endif %}
+    {% else %}
+        {% if "macos" in platforms %}
+    "Operating System :: MacOS :: MacOS X",
+        {% endif %}
+        {% if "windows" in platforms %}
+    "Operating System :: Microsoft :: Windows",
+        {% endif %}
+        {% if "linux" in platforms %}
+    "Operating System :: POSIX :: Linux",
+        {% endif %}
+    {% endif %}
     "Intended Audience :: Developers",
     "Natural Language :: English",
     "Programming Language :: Python",
