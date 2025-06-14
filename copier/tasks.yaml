@@ -1,17 +1,13 @@
 _tasks:
-  - command: [echo, task run when copy]
-    when: "{{ _copier_operation == 'copy' }}"
-  - command: "echo 'task run when update'"
-    when: "{{ _copier_operation == 'update' }}"
-  # Create virtual environment
+  # === Create virtual environment ===
   - command: [uv, venv, "--python={{ default_python_version }}"]
     when: "{{ _copier_operation == 'copy' }}"
   - command: [uv, sync, --all-extras, --all-groups]
     when: "{{ _copier_operation == 'copy' }}"
-  # Initialize git repo
+  # === Initialize git ===
   - command: [git, init, --initial-branch=main]
     when: "{{ _copier_operation == 'copy' }}"
-  # Create GitHub repo
+  # === Create GitHub repo ===
   - command:
       [
         gh,
