@@ -1,5 +1,5 @@
 <p align="center">
-    <em>SnakeForge, the opinionated Python template that gives you what you need, and not more.</em>
+    <em>SnakeForge, the opinionated Python template that gives you what you need, and no more.</em>
 </p>
 
 # Your favorite template for Python projects 🐍
@@ -8,7 +8,7 @@
 
 - `GitHub` hosted repo and CI/CD workflows for
 - `uv` managed dependencies and virtual environment
-- Hardcore `Ruff` linting and formatting
+- Strict `Ruff` linting and formatting
 - Static type testing with `ty`, yes we love [astral](https://astral.sh/)
 - Dynamic project metadata with `hatch` and `hatchling` build backend
 - `Markdown` documentation inspired by [FastAPI](https://fastapi.tiangolo.com/) and [Typer](https://typer.tiangolo.com/)
