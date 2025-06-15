@@ -31,4 +31,4 @@ class AboutPyProvider(VersionProvider):
     def set_version(self, version: str) -> None:
         content = self.file_path.read_text()
         new_content = self.version_regex.sub(f'__version__ = "{version}"', content)
-        self.file_path.write_text(new_content)
+        _ = self.file_path.write_text(new_content)

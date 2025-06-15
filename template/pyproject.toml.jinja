@@ -73,7 +73,8 @@ typeCheckingMode = "recommended" # standard recommended
 
 venvPath = "."
 venv = ".venv"
-pythonVersion = "{{ default_python_version }}"
+pythonVersion = "{{ default_python_version }}"{# Replace by minimum version like ruff's  default? #}
+
 pythonPlatform = "All"
 
 strictListInference = true
@@ -86,7 +87,6 @@ deprecateTypingAliases = true
 reportImplicitStringConcatenation = false # Ruff handles this
 
 # TODO: Comment out for production
-reportUnusedCallResult = "none"
 reportUnknownMemberType = "none"
 reportUnknownVariableType = "none"
 reportUnknownArgumentType = "none"
