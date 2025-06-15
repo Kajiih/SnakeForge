@@ -60,9 +60,6 @@ build-backend = "hatchling.build"
 packages = ["tools/commitizen_version_provider"]
 [tool.hatch.version]
 path = "src/{{ module_name }}/__about__.py"
-{# [tool.hatch.build.hooks.version]
-path = "src/{{ module_name }}/__about__.py"
-pattern = true #}
 [tool.hatch.metadata.hooks.custom]
 path="tools/hatch_build.py"
 
@@ -73,7 +70,8 @@ typeCheckingMode = "recommended" # standard recommended
 
 venvPath = "."
 venv = ".venv"
-pythonVersion = "{{ default_python_version }}"{# Replace by minimum version like ruff's  default? #}
+{# Replace by minimum version like ruff's default? #}
+pythonVersion = "{{ default_python_version }}"
 
 pythonPlatform = "All"
 
@@ -93,7 +91,7 @@ reportUnknownArgumentType = "none"
 reportAny = "none"
 reportExplicitAny = "none"
 
-
+{# Check if we base our config on hatch's one: https://hatch.pypa.io/1.13/config/internal/static-analysis/#persistent-config #}
 [tool.ruff] # https://docs.astral.sh/ruff/settings
 fix = true
 preview = true
