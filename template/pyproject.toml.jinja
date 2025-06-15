@@ -44,7 +44,7 @@ classifiers = [
 dependencies = []
 
 [dependency-groups]
-dev = ["hatchling", "pre-commit"]
+dev = ["hatchling", "pre-commit", "commitizen"]
 
 # https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#creating-executable-scripts
 [project.scripts]
@@ -183,3 +183,9 @@ check-filenames = true
 first-line-h1 = false
 no-inline-html = false
 line-length = false
+
+
+[tool.commitizen]
+version_provider = "about-py"
+[project.entry-points."commitizen.provider"]
+about-py = "tools/commitizen_version_provider.py:AboutPyProvider"
