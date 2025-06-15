@@ -61,11 +61,13 @@ source = "uv-dynamic-versioning"
 [tool.hatch.build.hooks.version]
 path = "src/{{ module_name }}/__about__.py"
 pattern = true
+[tool.hatch.build.targets.wheel]
+packages = ["tools/commitizen_version_provider"]
 # see: https://github.com/ninoseki/uv-dynamic-versioning/blob/main/docs/tips.md
-[tool.uv-dynamic-versioning]
-fallback-version = "0.0.0"
 [tool.hatch.metadata.hooks.custom] # Enables custom hooks for dynamic metadata
 path="tools/hatch_build.py"
+[tool.uv-dynamic-versioning]
+fallback-version = "0.0.0"
 
 # === Tools ===
 # https://github.com/microsoft/pyright/blob/main/docs/configuration.md or https://docs.basedpyright.com/v1.19.1/configuration/config-files/
@@ -186,6 +188,8 @@ line-length = false
 
 
 [tool.commitizen]
-version_provider = "about-py"
-[project.entry-points."commitizen.provider"]
-about-py = "tools/commitizen_version_provider.py:AboutPyProvider"
+version_provider = "custom"
+version_scheme = "semver2"
+    [project.entry-points."commitizen.provider"]
+    "custom" = "commitizen_version_provider:AboutPyProvider"
+
