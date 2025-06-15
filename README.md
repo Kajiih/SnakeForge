@@ -10,6 +10,8 @@
 - `uv` managed dependencies and virtual environment
 - Strict `Ruff` linting and formatting
 - Static type testing with `ty`, yes we love [astral](https://astral.sh/)
+- [`pre-commit hooks`](/docs/pre-commit-hooks.md) checking all this
+- [GitHub Actions](/docs/github-action.md) CI/CD workflows
 - Dynamic project metadata with `hatch` and `hatchling` build backend
 - `Markdown` documentation inspired by [FastAPI](https://fastapi.tiangolo.com/) and [Typer](https://typer.tiangolo.com/)
 
