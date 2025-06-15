@@ -2,9 +2,15 @@
 
 Most are inspired by [`Ty`'s repo](https://github.com/astral-sh/ty/blob/main/.pre-commit-config.yaml)
 
+## Default List
+
+- `Ruff` lint and formatting
+- `uv` lock check
+- `Gitleaks`
+- `Basedpyright`
+
 ## Need Config/Testing
 
-- <https://github.com/RobertCraigie/pyright-python>
 - <https://github.com/igorshubovych/markdownlint-cli>
 
 ## Tried and Dropped

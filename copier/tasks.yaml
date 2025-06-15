@@ -7,6 +7,9 @@ _tasks:
   # === Initialize git ===
   - command: [git, init, --initial-branch=main]
     when: "{{ _copier_operation == 'copy' }}"
+  # === Setup pre-commit ===
+  - command: [pre-commit, install]
+    when: "{{ _copier_operation == 'copy' }}"
   # === Create GitHub repo ===
   - command:
       [

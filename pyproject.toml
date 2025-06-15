@@ -23,7 +23,11 @@ classifiers = [
     "Programming Language :: Python :: 3.14",
     "Topic :: Software Development",
 ]
-dependencies = ["copier>=9.7.1", "copier-templates-extensions>=0.3.1"]
+dependencies = [
+    "copier>=9.7.1",
+    "copier-templates-extensions>=0.3.1",
+    "pre-commit",
+]
 
     [project.urls]
     Homepage = "https://TODO"
@@ -76,6 +80,7 @@ extend-exclude = ["template", ".dev_references/"]
         "COM819", # prohibited-trailing-comma
         "ISC002", # multi-line-implicit-string-concatenation
         "W291",   # trailing whitespace
+        "W292",
         "W293",
         "E271",
 
