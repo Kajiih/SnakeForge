@@ -12,3 +12,4 @@ wheels/
 # Dev
 .old/
 .keep/
+digest.txt

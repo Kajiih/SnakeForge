@@ -42,6 +42,16 @@ repos:
       - id: check-added-large-files
       - id: destroyed-symlinks
 
+  - repo: https://github.com/DetachHead/basedpyright-pre-commit-mirror
+    rev: v1.13.0
+    hooks:
+      - id: basedpyright
+
+  - repo: https://github.com/RobertCraigie/pyright-python
+    rev: v1.1.402
+    hooks:
+      - id: pyright
+
   - repo: https://github.com/gitleaks/gitleaks
     rev: v8.24.2
     hooks:
@@ -70,11 +80,6 @@ repos:
     rev: v1.33.1
     hooks:
       - id: typos
-
-  - repo: https://github.com/RobertCraigie/pyright-python
-    rev: v1.1.402
-    hooks:
-      - id: pyright
 
   - repo: https://github.com/abravalheri/validate-pyproject
     rev: v0.24.1

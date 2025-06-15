@@ -151,3 +151,12 @@ extend-include = ["*.ipynb"]
 [tool.codespell]
 write-changes = true
 check-filenames = true
+
+# Pre-commit
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+
+# TODO: Migrate to `ty` when stable enough
+[tool.basedpyright]
+venvPath = "."
