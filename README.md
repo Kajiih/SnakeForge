@@ -59,11 +59,13 @@ Unsure the following dependencies are installed:
 4. **Start coding your awesome package!**
 
 💡 Most of the time, if you want to update something that depends on an answer from the template (e.g., min python version, project description, etc), you better update the template with then new value so that it changes the value everywhere automatically.
+
 ### Roadmap
 
 - solve dynamic versioning with tags
+  - Check [this](https://commitizen-tools.github.io/commitizen/config/#custom-version-provider) to update verison with Commitizen
 - add license classifiers in `pyproject.tom`l
-- Replace `hatch` with `uv` (one day)
+- Replace `hatch` with `uv` (when the build backend is feature complete)
 - use `ty` as type checker, yes we love [astral.sh](https://astral.sh/) stuff..!
 - us devcontainer
 - docs template with mkdocs, also check [mdbook](https://rust-lang.github.io/mdBook/)
@@ -82,6 +84,7 @@ Unsure the following dependencies are installed:
 - Replace `uv-dynamic-version` with the features from [commitizen](https://github.com/commitizen-tools/commitizen) (and also changelog)
 - Add contributors: <https://github.com/all-contributors/all-contributors>
 - Make print embbeder a separate action/package, and ask to include it
+- code embbedder and print result embedder in precommit hook
 
 ## Advanced Usage
 
