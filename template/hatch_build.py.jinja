@@ -9,7 +9,7 @@ from hatchling.metadata.plugin.interface import MetadataHookInterface
 
 
 class AboutMetadataHookOld(MetadataHookInterface):
-    """Hatchling metadata hook that loads dynamic metadata for authors, and URLs from the `__about__.py` file within the project."""
+    """Hatchling metadata hook that loads dynamic metadata from the `__about__.py` file."""
 
     @override
     def update(self, metadata: dict[str, Any]) -> None:
@@ -18,6 +18,9 @@ class AboutMetadataHookOld(MetadataHookInterface):
 
         Args:
             metadata: The dictionary containing the project metadata.
+
+        Raises:
+            ImportError: Metadata loading failed
         """
         # Dynamically load __about__.py
         about_path = Path(self.root) / "src" / "{{ module_name }}" / "__about__.py"

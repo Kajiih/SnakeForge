@@ -39,7 +39,7 @@ Unsure the following dependencies are installed:
 
     You can verify all required tools are correctly installed by running:
 
-    ```bash
+    ```shell
     copier --version
     git --version
     gh --version
