@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Your favorite Python template 🐍"
 readme = "README.md"
 license-files = ["LICENSE"]
-requires-python = ">=3.13"
+requires-python = ">=3.12"
 keywords = ["copier", "python", "template", "copier-template", "copier-python"]
 authors = [{ name = "Kajih", email = "itskajih@gmail.com" }]
 classifiers = [
@@ -13,14 +13,11 @@ classifiers = [
     "Intended Audience :: Developers",
     "Natural Language :: English",
     "License :: OSI Approved :: MIT License",
-    "Operating System :: MacOS",
-    "Operating System :: Microsoft :: Windows",
-    "Operating System :: POSIX :: Linux",
+    "Operating System :: OS Independent",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3 :: Only",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
-    "Programming Language :: Python :: 3.14",
     "Topic :: Software Development",
 ]
 dependencies = [
@@ -30,11 +27,11 @@ dependencies = [
 ]
 
     [project.urls]
-    Homepage = "https://TODO"
-    Documentation = "https://TODO"
-    Repository = "https://TODO"
-    Issues = "https://TODO"
-    Changelog = "https://TODO"
+    Homepage = "https://github.com/Kajiih/SnakeForge"
+    # Documentation = "https://TODO"
+    Repository = "https://github.com/Kajiih/SnakeForge"
+    Issues = "https://github.com/Kajiih/SnakeForge/issues"
+    # Changelog = "https://TODO"
 
 [dependency-groups]
 dev = [
