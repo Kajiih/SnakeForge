@@ -1,4 +1,5 @@
 # https://pre-commit.com
+exclude: '^\.copier-answers\.yml$'
 
 ci:
   autofix_commit_msg: 🎨 [pre-commit.ci] Auto format from pre-commit.com hooks
@@ -49,6 +50,49 @@ repos:
     hooks:
       - id: basedpyright
 
+  - repo: https://github.com/hukkin/mdformat
+    rev: 0.7.22
+    hooks:
+      - id: mdformat
+        args:
+          - --wrap=100
+        additional_dependencies:
+          - mdformat-mkdocs
+          - mdformat-ruff
+          - mdformat-shfmt
+          - mdformat-config
+          - mdformat-web
+          - mdformat-footnote
+          - mdformat-simple-breaks
+          - mdformat-tables
+          - mdformat-toc
+          - mdformat-frontmatter
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.45.0
+    hooks:
+      - id: markdownlint-fix
+        args:
+          - --config=pyproject.toml
+          - --configPointer=/tool/markdownlint
+
+  - repo: https://github.com/rbubley/mirrors-prettier
+    rev: v3.5.3
+    hooks:
+      - id: prettier
+        types: [yaml]
+
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.4.1
+    hooks:
+      - id: codespell
+        additional_dependencies:
+          - tomli
+
+  - repo: https://github.com/crate-ci/typos
+    rev: v1.33.1
+    hooks:
+      - id: typos
+
   - repo: https://github.com/gitleaks/gitleaks
     rev: v8.27.2
     hooks:
@@ -66,44 +110,17 @@ repos:
     hooks:
       - id: creosote
 
-  - repo: https://github.com/codespell-project/codespell
-    rev: v2.4.1
-    hooks:
-      - id: codespell
-        additional_dependencies:
-          - tomli
-
-  - repo: https://github.com/crate-ci/typos
-    rev: v1.33.1
-    hooks:
-      - id: typos
-
   - repo: https://github.com/abravalheri/validate-pyproject
     rev: v0.24.1
     hooks:
       - id: validate-pyproject
         additional_dependencies: ["validate-pyproject-schema-store[all]"]
 
-  - repo: https://github.com/hukkin/mdformat
-    rev: 0.7.22
+  - repo: https://github.com/python-jsonschema/check-jsonschema
+    rev: 0.33.0
     hooks:
-      - id: mdformat
-        additional_dependencies:
-          - mdformat-ruff
-          - mdformat-shfmt
-          - mdformat-config
-          - mdformat-mkdocs
-          - mdformat-footnote
-  - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.45.0
-    hooks:
-      - id: markdownlint-fix
-
-  - repo: https://github.com/rbubley/mirrors-prettier
-    rev: v3.5.3
-    hooks:
-      - id: prettier
-        types: [yaml]
+      - id: check-github-workflows
+        args: ["--verbose"]
 
   - repo: https://github.com/asottile/pyupgrade
     rev: v3.20.0
@@ -116,12 +133,6 @@ repos:
     rev: v1.9.0
     hooks:
       - id: zizmor
-
-  - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.33.0
-    hooks:
-      - id: check-github-workflows
-        args: ["--verbose"]
 
   # `actionlint` hook, for verifying correct syntax in GitHub Actions workflows.
   # Some additional configuration for `actionlint` can be found in `.github/actionlint.yaml`.

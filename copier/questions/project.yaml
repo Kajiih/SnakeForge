@@ -22,6 +22,10 @@ project_description:
   type: str
   help: "Short and punchy description of the project:"
   placeholder: "{{ project_name }}, the awesome python project that also makes coffee ☕"
+  validator: >-
+    {% if not project_description.strip() %}
+    ERROR: Must not be empty
+    {% endif %}
 project_keywords:
   type: str
   help: "Comma-separated keywords:"

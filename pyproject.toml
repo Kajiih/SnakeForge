@@ -23,11 +23,12 @@ classifiers = [
 dependencies = [
     "copier>=9.7.1",
     "copier-templates-extensions>=0.3.1",
-    "pre-commit",
+    "pre-commit>=4.2.0",
+    "uv>=0.7.13",
 ]
 
     [project.urls]
-    Homepage = "https://github.com/Kajiih/SnakeForge"
+    # Homepage = "https://github.com/Kajiih/SnakeForge"
     # Documentation = "https://TODO"
     Repository = "https://github.com/Kajiih/SnakeForge"
     Issues = "https://github.com/Kajiih/SnakeForge/issues"
