@@ -12,6 +12,7 @@
 - Static type testing with `ty`, yes we love [astral](https://astral.sh/)
 - [`pre-commit hooks`](/docs/pre-commit-hooks.md) checking all this
 - [GitHub Actions](/docs/github-action.md) CI/CD workflows
+- [Versioning](/docs/versioning.md) with `Commitizen`
 - Dynamic project metadata with `hatch` and `hatchling` build backend
 - `Markdown` documentation inspired by [FastAPI](https://fastapi.tiangolo.com/) and [Typer](https://typer.tiangolo.com/)
 
@@ -63,7 +64,7 @@ Unsure the following dependencies are installed:
 ### Roadmap
 
 - solve dynamic versioning with tags
-  - Check [this](https://commitizen-tools.github.io/commitizen/config/#custom-version-provider) to update verison with Commitizen
+  - Check [this](https://commitizen-tools.github.io/commitizen/config/#custom-version-provider) to update version with Commitizen
 - add license classifiers in `pyproject.tom`l
 - Replace `hatch` with `uv` (when the build backend is feature complete)
 - use `ty` as type checker, yes we love [astral.sh](https://astral.sh/) stuff..!
