@@ -58,6 +58,7 @@ Unsure the following dependencies are installed:
 
 4. **Start coding your awesome package!**
 
+💡 Most of the time, if you want to update something that depends on an answer from the template (e.g., min python version, project description, etc), you better update the template with then new value so that it changes the value everywhere automatically.
 ### Roadmap
 
 - solve dynamic versioning with tags

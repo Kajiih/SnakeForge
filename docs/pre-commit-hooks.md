@@ -2,16 +2,19 @@
 
 Most are inspired by [`Ty`'s repo](https://github.com/astral-sh/ty/blob/main/.pre-commit-config.yaml)
 
-## Default List
+## Definitive List
 
 - `Ruff` lint and formatting
 - `uv` lock check
 - `Gitleaks`
 - `Basedpyright`
 
-## Need Config/Testing
+Most others might be dropped later.
 
-- <https://github.com/igorshubovych/markdownlint-cli>
+## Incoming
+
+- [Code embedder](https://github.com/kvankova/code-embedder/tree/v1.1.1/)
+- REPL Snippets (currently only a script)
 
 ## Tried and Dropped
 

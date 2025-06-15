@@ -34,3 +34,14 @@ _tasks:
   # - command: .venv/bin/pre-commit run --all-files --hook-stage=manual || true
   #   when: "{{ _copier_operation == 'copy' }}"
   # TODO : Print hint to remind to activate the virtual environment (grep the output from uv venv above to have the correct command to use, or use the dedicated command if this feature request is accepted: https://github.com/astral-sh/uv/issues/14038)
+
+  # === Update ===
+  - command:
+      [
+        gh,
+        repo,
+        edit,
+        Kajiih/nested_dict_tools,
+        "--description={{ project_description }}",
+      ]
+    when: "{{ _copier_operation == 'update' }}"
