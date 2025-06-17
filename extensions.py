@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
+import os
 import re
 import subprocess  # noqa: S404
 import unicodedata
+import uuid
 from datetime import UTC, datetime
 from typing import TYPE_CHECKING, LiteralString
 
@@ -162,3 +164,28 @@ class SemverExtension(Extension):
         super().__init__(environment)
         environment.filters["version_higher_than"] = version_higher_than  # pyright: ignore[reportArgumentType]
         environment.filters["version_between"] = version_between  # pyright: ignore[reportArgumentType]
+
+
+def is_uuid(value: str) -> bool:
+    """Check if value is a valid UUID string."""
+    try:
+        _ = uuid.UUID(value)
+        return True  # noqa: TRY300
+    except (ValueError, TypeError):
+        return False
+
+
+class UUIDExtension(Extension):
+    """UUID validation filter."""
+
+    def __init__(self, environment: Environment):
+        super().__init__(environment)
+        environment.filters["is_uuid"] = is_uuid  # pyright: ignore[reportArgumentType]
+
+
+class EnvExtension(Extension):
+    """Expose environment variables to Jinja context."""
+
+    def __init__(self, environment):
+        super().__init__(environment)
+        environment.globals["env"] = os.environ  # pyright: ignore[reportArgumentType]

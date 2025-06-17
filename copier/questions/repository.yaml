@@ -1,6 +1,7 @@
 _jinja_extensions:
   - extensions.py:GitConfigExtension
   - extensions.py:SlugifyExtension
+  - extensions.py:UUIDExtension
 
 repo_platform: # Skipped, only supports GitHub for now
   type: str
@@ -41,4 +42,25 @@ homepage_url:
   validator: >-
     {% if not homepage_url.strip() %}
     ERROR: Must not be empty
+    {% endif %}
+
+codecov_token:
+  type: str
+  help: |
+    Your Codecov upload token (for a single repository or your organization).
+
+    ➤ Get it from:
+      - https://app.codecov.io/github/{{ repo_namespace }}/{{ repo_name }}/new  (repository token)
+      - https://app.codecov.io/account/github/{{ repo_namespace }}/org-upload-token  (org token)
+    {% if 'CODECOV_TOKEN' in env %}
+
+    ➤ The default is the value of the environment variable `CODECOV_TOKEN`.
+    {% endif %}
+
+  secret: true
+  default: "{{ env.get('CODECOV_TOKEN', '') }}"
+  placeholder: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+  validator: >-
+    {% if codecov_token and not (codecov_token | is_uuid) %}
+    Must be empty or a valid UUID.
     {% endif %}

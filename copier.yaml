@@ -1,5 +1,6 @@
 _jinja_extensions:
   - copier_templates_extensions.TemplateExtensionLoader
+  - extensions.py:EnvExtension
 
 # I don't know why but we need those ---
 ---

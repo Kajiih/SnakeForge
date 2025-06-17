@@ -12,6 +12,7 @@ The template comes with complete workflows for CI and CD.
 
 - ✅ Check that `uv` cache works
 - ✅ Check that `md test reports` are generated
+- Fix test workflow to upload coverage only once (combine?)
 - Check that coverage is uploaded
 - Create `release` workflow
 - Check if more actions should be added
