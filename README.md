@@ -63,29 +63,24 @@ Unsure the following dependencies are installed:
 
 ### Roadmap
 
-- solve dynamic versioning with tags
-  - Check [this](https://commitizen-tools.github.io/commitizen/config/#custom-version-provider) to update version with Commitizen
-- add license classifiers in `pyproject.tom`l
+- add license classifiers in `pyproject.tom`
 - Replace `hatch` with `uv` (when the build backend is feature complete)
 - use `ty` as type checker, yes we love [astral.sh](https://astral.sh/) stuff..!
 - us devcontainer
 - docs template with mkdocs, also check [mdbook](https://rust-lang.github.io/mdBook/)
-- github actions
 - issue template
 - docker setup
 - app vs package
-- pytest, coverage, etc
 - typedsettings and cyclopts with examples
-- dependabot
 - pypi
 - [Changelog](https://keepachangelog.com/en/1.1.0/)
 - Add proper testing with [this](https://github.com/KyleKing/copier-template-tester/tree/main/docs)
 - Add profiles like [this](https://github.com/NLeSC/python-**template**)
 - Add proper messages
 - Replace `uv-dynamic-version` with the features from [commitizen](https://github.com/commitizen-tools/commitizen) (and also changelog)
-- Add contributors: <https://github.com/all-contributors/all-contributors>
-- Make print embbeder a separate action/package, and ask to include it
 - code embbedder and print result embedder in precommit hook
+- Replace plain tasks by some more practical task runner (invoke, etc)
+- Clean up template formatting (toml, etc)
 
 ## Advanced Usage
 
