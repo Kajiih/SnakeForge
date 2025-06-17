@@ -12,7 +12,7 @@ indent_size = 4
 indent_style = space
 
 # 2 space indentation
-[*.{json{c,},y{a,}ml,html,cwl}]
+[*.{json{c,},y{a,}ml,html,cwl}{.jinja,}]
 indent_size = 2
 
 [*.bat]

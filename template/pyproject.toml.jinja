@@ -44,7 +44,15 @@ classifiers = [
 dependencies = []
 
 [dependency-groups]
-dev = ["hatchling", "pre-commit", "commitizen"]
+dev = [
+    "hatchling",
+    "pre-commit",
+    "commitizen",
+    "pytest",
+    "pytest-cov",
+    "pytest-md-report",
+    "covdefaults"
+]
 
 # https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#creating-executable-scripts
 [project.scripts]
@@ -61,10 +69,10 @@ packages = ["tools/commitizen_version_provider"]
 [tool.hatch.version]
 path = "src/{{ module_name }}/__about__.py"
 [tool.hatch.metadata.hooks.custom]
-path="tools/hatch_build.py"
+path = "tools/hatch_build.py"
 
 # === Tools ===
-# https://github.com/microsoft/pyright/blob/main/docs/configuration.md or https://docs.basedpyright.com/v1.19.1/configuration/config-files/
+# https://github.com/microsoft/pyright/blob/main/docs/configuration.md or https://docs.basedpyright.com/dev/configuration/config-files/
 [tool.basedpyright] # TODO: Migrate to `ty` when stable enough
 typeCheckingMode = "recommended" # standard recommended
 
@@ -91,7 +99,7 @@ reportUnknownArgumentType = "none"
 reportAny = "none"
 reportExplicitAny = "none"
 
-{# Check if we base our config on hatch's one: https://hatch.pypa.io/1.13/config/internal/static-analysis/#persistent-config #}
+{# Check if we base our config on hatch's one: https://hatch.pypa.io/1.13/config/internal/static-analysis/#persistent-config -> probably not #}
 [tool.ruff] # https://docs.astral.sh/ruff/settings
 fix = true
 preview = true
@@ -126,6 +134,7 @@ extend-include = ["*.ipynb"]
         "W291",   # trailing whitespace
         "W292",
         "W293",
+        "W391",
         "E271",
 
         # === Convenience ===
@@ -171,6 +180,35 @@ extend-include = ["*.ipynb"]
 
         [tool.ruff.lint.flake8-import-conventions.extend-aliases]
         "typed_settings" = "ts"
+
+
+[tool.pytest.ini_options] # https://docs.pytest.org/en/stable/customize.html
+# You might want to add some more dependencies, like those of `hatch test`:
+# https://hatch.pypa.io/1.13/config/internal/testing/#dependencies
+markers = ["slow: marks tests as slow (deselect with '-m \"not slow\"')"]
+addopts = [
+    "-m=not slow",
+    "--doctest-modules",
+    "--cov=.",
+    "--strict-config",
+    "--strict-markers",
+]
+pythonpath = ["src"]
+
+# https://github.com/thombashi/pytest-md-report#ini-options
+md_report = false                                             # Mainly used in CI
+md_report_verbose = 2
+md_report_exclude_outcomes = ["passed", "xfailed", "skipped"]
+
+
+[tool.coverage.run]
+plugins = [
+    "covdefaults", # https://github.com/asottile/covdefaults
+]
+omit = ["tools/*"]
+
+[tool.coverage.report]
+fail_under = 80
 
 
 [tool.codespell]

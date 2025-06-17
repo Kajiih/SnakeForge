@@ -1,6 +1,8 @@
 # Pre-commits Hooks
 
-Most are inspired by [`Ty`'s repo](https://github.com/astral-sh/ty/blob/main/.pre-commit-config.yaml)
+We use [pre-commit](https://pre-commit.com/).
+
+The list of hooks installed by default is inspired by [`Ty`'s repo](https://github.com/astral-sh/ty/blob/main/.pre-commit-config.yaml)
 
 ## Definitive List
 
