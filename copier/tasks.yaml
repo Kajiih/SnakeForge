@@ -21,9 +21,16 @@ _tasks:
         "--disable-wiki",
       ]
     when: "{{ _copier_operation == 'copy' }}"
+  # --- Set up Codecov secret ---
+  - command: |
+      gh secret set CODECOV_TOKEN \
+        --app actions \
+        --body "{{ codecov_token }}" \
+        --repo "{{ repo_namespace }}/{{ repo_name }}"
+    when: "{{ _copier_operation == 'copy' and codecov_token != '' }}"
   - command: [git, add, -A]
     when: "{{ _copier_operation == 'copy' }}"
-  - command: [git, commit, --all, -m="🚀 Create project from template"]
+  - command: [git, commit, --all, -m 🚀 Create project from template]
     when: "{{ _copier_operation == 'copy' }}"
   - command: [git, push]
     when: "{{ _copier_operation == 'copy' }}"
