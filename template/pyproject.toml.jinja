@@ -55,9 +55,9 @@ dev = [
     "covdefaults",
 ]
 
-# https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#creating-executable-scripts
-[project.scripts]
-{{ cli_name }} = "{{ module_name }}:main_cli"
+    # https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#creating-executable-scripts
+    [project.scripts]
+    {{ cli_name }} = "{{ module_name }}:main_cli"
 
 
 # === Build ===

@@ -81,6 +81,7 @@ Unsure the following dependencies are installed:
 - code embbedder and print result embedder in precommit hook
 - Replace plain tasks by some more practical task runner (invoke, etc)
 - Clean up template formatting (toml, etc)
+- Publish github workflow
 
 ## Advanced Usage
 
