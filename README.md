@@ -82,6 +82,7 @@ Unsure the following dependencies are installed:
 - Replace plain tasks by some more practical task runner (invoke, etc)
 - Clean up template formatting (toml, etc)
 - Publish github workflow
+- Fix codecov test analytics not appearing: [issue](https://github.com/codecov/test-results-action/issues/126)
 
 ## Advanced Usage
 
