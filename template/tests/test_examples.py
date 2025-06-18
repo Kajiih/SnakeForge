@@ -21,7 +21,7 @@ def test_xfailed():
 
 @pytest.mark.slow("yeah")
 def test_slow():
-    sleep(2)
+    sleep(1)
     assert 1 + 1 == 2
 
 

@@ -48,13 +48,27 @@ jobs:
         run: uv sync --all-extras --dev
 
       # https://github.com/thombashi/pytest-md-report
-      - name: 🧪 Run Pytest with doctest
+      - name: 🧪 Run tests
         env:
           REPORT_OUTPUT: pytest_report.md
         run: |
           echo "REPORT_FILE=${REPORT_OUTPUT}" >> "$GITHUB_ENV"
-          pytest -m "" --md-report --md-report-flavor=gfm --md-report-output="$REPORT_OUTPUT"
-      - name: 🧪 Add test output reports to the job summary
+          pytest -m "" --md-report --md-report-flavor=gfm --md-report-output="$REPORT_OUTPUT" --junitxml=junit.xml -o junit_family=legacy
+
+      # TODO: Check why most of the uploads don't appear in the results
+      # TRACK: https://github.com/codecov/test-results-action/issues/126
+      - name: 📊 Upload test results to Codecov
+        {% raw %}
+        if: ${{ !cancelled() }}
+        {% endraw %}
+        uses: codecov/test-results-action@47f89e9acb64b76debcd5ea40642d25a4adced9f # v1.1.1
+        with:
+          {% raw %}
+          token: ${{ secrets.CODECOV_TOKEN }}
+          {% endraw %}
+
+
+      - name: 📊 Add test output reports to the job summary
         if: failure()
         run: |
           if [ -f "$REPORT_FILE" ]; then
@@ -75,8 +89,6 @@ jobs:
   lint:
     name: 🧹 Lint & Type Check
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
     timeout-minutes: 10
     steps:
       - name: 🛎️ Checkout
@@ -94,7 +106,7 @@ jobs:
         run: uv sync --all-extras --dev
 
       - name: 🔍 Lint check
-        uses: astral-sh/ruff-action@813f619ec22bd86f873edaa42d5b01aff58688c9 # 3.4.0
+        uses: astral-sh/ruff-action@52ac3ada9192d41bb1392abe849d80225b53c1ee # 3.4.0
         with:
           args: check --output-format github
 
