@@ -26,7 +26,7 @@ _message_after_copy: |
      {{ "\033[1;36m" }}• Environment name:{{ "\033[0m" }} pypi (recommended)
   4. Add the publisher
 
-  {{ "\033[1;31m" }}⚠️ Important:{{ "\033[0m" }} This allows secure publishing without storing API tokens!
+  {{ "\033[1;31m" }}⚠️ Important:{{ "\033[0m" }} This is necessary to publish on PyPI without storing API tokens!
   {{ "\033[1;34m" }}📖 Full Documentation:{{ "\033[0m" }} https://docs.pypi.org/trusted-publishers/
 
 _message_before_update: |

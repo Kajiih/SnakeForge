@@ -9,19 +9,20 @@
 </p>
 <!-- 4 to 5 badges max -->
 <p align="center">
-<a href="{{ repo_url }}/actions?query=workflow%3ATest" target="_blank">
-    <img src="{{ repo_url }}/workflows/Test/badge.svg" alt="Test">
+<a href="{{ repo_url }}/actions/workflows/ci.yaml" target="_blank">
+    <img src="https://img.shields.io/github/actions/workflow/status/{{ repo_namespace }}/{{ repo_name }}/ci.yaml?branch=main&label=CI&logo=github&style=for-the-badge" alt="CI">
 </a>
-<a href="{{ repo_url }}/actions?query=workflow%3APublish" target="_blank">
-    <img src="{{ repo_url }}/workflows/Publish/badge.svg" alt="Publish">
+<a href="{{ repo_url }}/actions/workflows/publish.yaml" target="_blank">
+    <img src="https://img.shields.io/github/actions/workflow/status/{{ repo_namespace }}/{{ repo_name }}/publish.yaml?branch=main&label=Publish&logo=github&style=for-the-badge" alt="Publish">
 </a>
 <a href="https://codecov.io/github/{{ repo_namespace }}/{{ repo_name }}" target="_blank">
-    <img src="https://img.shields.io/codecov/c/github/{{ repo_namespace }}/{{ repo_name }}" alt="Coverage">
-<a href="https://pypi.org/project/{{ package_name }}" target="_blank">
-    <img src="https://img.shields.io/pypi/v/{{ package_name }}" alt="Package version">
+    <img src="https://img.shields.io/codecov/c/github/{{ repo_namespace }}/{{ repo_name }}?logo=codecov&style=for-the-badge" alt="Coverage">
 </a>
 <a href="https://pypi.org/project/{{ package_name }}" target="_blank">
-    <img src="https://img.shields.io/pypi/pyversions/{{ package_name }}" alt="Supported Python versions">
+    <img src="https://img.shields.io/pypi/v/{{ package_name }}?logo=pypi&style=for-the-badge" alt="Package version">
+</a>
+<a href="https://pypi.org/project/{{ package_name }}" target="_blank">
+    <img src="https://img.shields.io/pypi/pyversions/{{ package_name }}?logo=python&style=for-the-badge" alt="Supported Python versions">
 </a>
 </p>
 
