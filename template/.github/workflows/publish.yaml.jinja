@@ -1,0 +1,43 @@
+name: 📦 Publish
+
+on:
+  push:
+    tags:
+      - "[0-9]+.[0-9]+.[0-9]+*"
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  build-and-publish:
+    name: 🚀 Build & Publish
+    runs-on: ubuntu-latest
+
+    environment:
+      name: pypi
+      url: https://pypi.org/project/{{ package_name }}/
+
+    steps:
+      - name: ⬇️ Checkout code
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: 📦 Install Hatch
+        run: pip install hatch
+
+      - name: 🛠️ Build package
+        run: hatch build
+
+      - name: 🚀 Publish to PyPI (trusted publishing)
+        uses: pypa/gh-action-pypi-publish@76f52bc884231f62b9a034ebfe128415bbaabdfc  # v1.12.4
+
+      - name: 📝 Create GitHub Release
+        uses: softprops/action-gh-release@72f2c25fcb47643c292f7107632f7a47c1df5cd8  # v2.3.2
+        with:
+          generate_release_notes: true
+        env:
+          {% raw %}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          {% endraw %}

@@ -28,6 +28,12 @@
 
 ## 📋 Requirements
 
+You will need an accounts on:
+
+- [GitHub](https://github.com/) to host your repository
+- [PyPI](https://pypi.org/) to publish your project
+- [CodeCov](https://about.codecov.io/sign-up/) to check your project's tests and coverage
+
 Unsure the following dependencies are installed:
 
 - Python>=3.12
