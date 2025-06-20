@@ -186,6 +186,6 @@ class UUIDExtension(Extension):
 class EnvExtension(Extension):
     """Expose environment variables to Jinja context."""
 
-    def __init__(self, environment):
+    def __init__(self, environment: Environment):
         super().__init__(environment)
         environment.globals["env"] = os.environ  # pyright: ignore[reportArgumentType]
