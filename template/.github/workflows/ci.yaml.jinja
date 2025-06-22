@@ -13,7 +13,7 @@ on:
 
 jobs:
   test:
-    {% raw %}
+    {%- raw %}
     name: 🧪 Test on ${{ matrix.os }} / Python ${{ matrix.python-version }}
     runs-on: ${{ matrix.os }}
     {% endraw %}
@@ -36,7 +36,7 @@ jobs:
       - name: 🐍 Install uv
         uses: astral-sh/setup-uv@445689ea25e0de0a23313031f5fe577c74ae45a1 # v6.3.0
         with:
-          {% raw %}
+          {%- raw %}
           python-version: ${{ matrix.python-version }}
           {% endraw %}
           activate-environment: true
@@ -56,12 +56,12 @@ jobs:
       # TODO: Check why most of the uploads don't appear in the results
       # TRACK: https://github.com/codecov/test-results-action/issues/126
       - name: 📊 Upload test results to Codecov
-        {% raw %}
+        {%- raw %}
         if: ${{ !cancelled() }}
         {% endraw %}
         uses: codecov/test-results-action@47f89e9acb64b76debcd5ea40642d25a4adced9f # v1.1.1
         with:
-          {% raw %}
+          {%- raw %}
           token: ${{ secrets.CODECOV_TOKEN }}
           {% endraw %}
 
@@ -81,7 +81,7 @@ jobs:
       - name: 📊 Upload coverage to Codecov
         uses: codecov/codecov-action@78f372e97e6e2f82dc51b004c5fb646501ee30ae # 5.4.3
         env:
-          {% raw %}
+          {%- raw %}
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
           {% endraw %}
 

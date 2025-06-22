@@ -31,19 +31,19 @@ jobs:
         run: hatch build
 
       - name: 🚀 Publish to PyPI (trusted publishing)
-        uses: pypa/gh-action-pypi-publish@76f52bc884231f62b9a034ebfe128415bbaabdfc  # v1.12.4
+        uses: pypa/gh-action-pypi-publish@76f52bc884231f62b9a034ebfe128415bbaabdfc # v1.12.4
       {# Note: Use this when testing on test.pypi + change environment name to testpypi and adapt trusted publisher setup #}
       {# - name: Publish package distributions to TestPyPI
-        uses: pypa/gh-action-pypi-publish@76f52bc884231f62b9a034ebfe128415bbaabdfc  # v1.12.4
+        uses: pypa/gh-action-pypi-publish@76f52bc884231f62b9a034ebfe128415bbaabdfc # v1.12.4
         with:
           repository-url: https://test.pypi.org/legacy/ #}
 
       - name: 📝 Create GitHub Release
-        uses: softprops/action-gh-release@72f2c25fcb47643c292f7107632f7a47c1df5cd8  # v2.3.2
+        uses: softprops/action-gh-release@72f2c25fcb47643c292f7107632f7a47c1df5cd8 # v2.3.2
         with:
           generate_release_notes: true
         env:
-          {% raw %}
+          {%- raw %}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           {% endraw %}
 
@@ -60,7 +60,7 @@ jobs:
       cancel-in-progress: false
     environment:
       name: github-pages
-      {% raw %}
+      {%- raw %}
       url: ${{ steps.deployment.outputs.page_url }} # Retrieved from deploy-pages action
       {% endraw %}
 
@@ -91,6 +91,6 @@ jobs:
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: 'site/'
+          path: "site/"
       - uses: actions/deploy-pages@v4
         id: deployment
