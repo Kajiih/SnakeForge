@@ -4,6 +4,7 @@ site_url: {{ documentation_url }}
 site_author: {{ author_fullname }}
 repo_url: {{ repo_url }}
 copyright: Copyright &copy; {{ copyright_year }} {{ author_fullname }}
+edit_uri: edit/main/docs/
 
 nav:
   - Home: index.md
@@ -115,7 +116,8 @@ plugins:
               # - griffe_inherited_method_crossrefs # TODO: test over the following 2 extensions
               # - griffe-inherited-docstrings
               # - docstring_inheritance.griffe
-  - git-revision-date-localized
+  - git-revision-date-localized:
+      enable_creation_date: true
 
 # https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/
 markdown_extensions:
