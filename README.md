@@ -61,9 +61,11 @@ Unsure the following dependencies are installed:
 
 3. **Setup the project**
 
-    Follow the instructions displayed at the end of the generation process to initialize Git, create the GitHub repository, and set up the virtual environment
+    Follow the instructions displayed at the end of the generation process to enable all features.
 
-4. **Start coding your awesome package!**
+    💡 Your CI/CD workflow will probably fail until you setup everything correctly and remove the code samples to improve code coverage.
+
+4. **Start coding your awesome project!**
 
 💡 Most of the time, if you want to update something that depends on an answer from the template (e.g., min python version, project description, etc), you better update the template with then new value so that it changes the value everywhere automatically.
 
@@ -89,6 +91,10 @@ Unsure the following dependencies are installed:
 - Clean up template formatting (toml, etc)
 - Publish github workflow
 - Fix codecov test analytics not appearing: [issue](https://github.com/codecov/test-results-action/issues/126)
+- Documentation
+  - Add [analytics](https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-analytics/)
+  - Add [versioning](https://squidfunk.github.io/mkdocs-material/setup/setting-up-versioning/)
+  - (maybe) Add [Social cards](https://squidfunk.github.io/mkdocs-material/setup/setting-up-social-cards/)
 
 ## Advanced Usage
 

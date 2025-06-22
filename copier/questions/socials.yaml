@@ -1,0 +1,43 @@
+# Those variables currently only used in documentation footer and can only be set/changed with a copier settings: https://copier.readthedocs.io/en/stable/settings/
+
+bluesky_url:
+  type: str
+  help: "Author's Bluesky"
+  default: ""
+  when: false
+
+linkedin_url:
+  type: str
+  help: "Author's LinkedIn"
+  default: ""
+  when: false
+
+youtube_url:
+  type: str
+  help: "Author's YouTube"
+  default: ""
+  when: false
+
+discord_url:
+  type: str
+  help: "Author's Discord"
+  default: ""
+  when: false
+
+x_twitter_url:
+  type: str
+  help: "Author's X/Twitter"
+  default: ""
+  when: false
+
+instagram_url:
+  type: str
+  help: "Author's Instagram"
+  default: ""
+  when: false
+
+facebook_url:
+  type: str
+  help: "Author's Facebook"
+  default: ""
+  when: false

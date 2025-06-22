@@ -11,23 +11,41 @@ _message_before_copy: |
 _message_after_copy: |
 
   {{ "\033[1;32m" }}✅ Your project "{{ project_name }}" has been successfully created in {{ _copier_conf.dst_path }}{{ "\033[0m" }}
-  {{ "\033[1;36m" }}💡 Don't forget to activate your virtual environment (look for the "Activate with:" line in the logs of the `uv venv ...` task).{{ "\033[0m" }}
 
   {{ "\033[1;33m" }}🔒 Setup PyPI Trusted Publisher{{ "\033[0m" }}
   {{ "\033[1;33m" }}==================================================={{ "\033[0m" }}
-  {{ "\033[1;33m" }}To enable package publishing with GitHub actions:{{ "\033[0m" }}
+  {{ "\033[33m" }}To enable package publishing with GitHub Actions:{{ "\033[0m" }}
   1. Go to: {{ "\033[1;34m" }}https://pypi.org/manage/account/publishing/{{ "\033[0m" }}
-  2. Go to the "Add a new pending publisher" section in the GitHub tab
+  2. Scroll to the "Add a new pending publisher" section in the GitHub tab
   3. Fill in the details:
-     {{ "\033[1;36m" }}• PyPI Project Name:{{ "\033[0m" }} {{ package_name }}
-     {{ "\033[1;36m" }}• Owner:{{ "\033[0m" }} {{ repo_namespace }}
-     {{ "\033[1;36m" }}• Repository name:{{ "\033[0m" }} {{ repo_name }}
-     {{ "\033[1;36m" }}• Workflow name:{{ "\033[0m" }} publish.yaml
-     {{ "\033[1;36m" }}• Environment name:{{ "\033[0m" }} pypi (recommended)
-  4. Add the publisher
+     {{ "\033[36m" }}• PyPI Project Name:{{ "\033[0m" }} {{ package_name }}
+     {{ "\033[36m" }}• Owner:{{ "\033[0m" }} {{ repo_namespace }}
+     {{ "\033[36m" }}• Repository name:{{ "\033[0m" }} {{ repo_name }}
+     {{ "\033[36m" }}• Workflow name:{{ "\033[0m" }} publish.yaml
+     {{ "\033[36m" }}• Environment name:{{ "\033[0m" }} pypi
+  4. Click "Add"
+  {{ "\033[1;34m" }}📖 Full docs on trusted publishers:{{ "\033[0m" }} https://docs.pypi.org/trusted-publishers/
 
-  {{ "\033[1;31m" }}⚠️ Important:{{ "\033[0m" }} This is necessary to publish on PyPI without storing API tokens!
-  {{ "\033[1;34m" }}📖 Full Documentation:{{ "\033[0m" }} https://docs.pypi.org/trusted-publishers/
+  {{ "\033[1;33m" }}📦 Enable Deploying GitHub Pages with GitHub Actions{{ "\033[0m" }}
+  {{ "\033[1;33m" }}==================================================={{ "\033[0m" }}
+  {{ "\033[33m" }}To serve your docs with GitHub Pages:{{ "\033[0m" }}
+  1. Go to the Pages settings of your newly created repo:
+     {{ "\033[1;34m" }}{{ repo_url }}/settings/pages{{ "\033[0m" }}
+  2. Under "Build and deployment", set source to GitHub Actions
+
+  {{ "\033[1;33m" }}🔐 Allow tag-based deployments to your `github-pages` environment{{ "\033[0m" }}
+  {{ "\033[1;33m" }}==================================================={{ "\033[0m" }}
+  {{ "\033[33m" }}To let version tags deploy your site:{{ "\033[0m" }}
+  1. Go to your repo’s Environments page:
+     {{ "\033[1;34m" }}{{ repo_url }}/settings/environments{{ "\033[0m" }}
+  2. Click on "github-pages"
+  3. Under "Deployment branches and tags", click "Add deployment branch or tag rule"
+  4. Change "Ref type" to "Tag"
+  5. In "Name pattern", enter: {{ "\033[34m" }}[0-9]*.[0-9]*.[0-9]*{{ "\033[0m" }}
+  6. Click "Add rule"
+
+  {{ "\033[1;32m" }}✅ All set! Your CI/CD workflows are now ready to go.{{ "\033[0m" }}
+  {{ "\033[1;36m" }}💡 Don't forget to activate your virtual environment (look for the "Activate with:" line in the logs of the `uv venv ...` task).{{ "\033[0m" }}
 
 _message_before_update: |
   Thanks for updating your project using our template.

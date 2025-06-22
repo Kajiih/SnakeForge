@@ -30,9 +30,14 @@ repo_name: # TODO: Check if it's ok to have spaces (enforce normalized names)
     ERROR: Must not be empty
     {% endif %}
 
+repo_owner_url: # Computed
+  type: str
+  default: "https://{{ repo_platform }}.com/{{ repo_namespace }}"
+  when: false
+
 repo_url: # Computed
   type: str
-  default: "https://{{ repo_platform }}.com/{{ repo_namespace }}/{{ repo_name }}"
+  default: "{{ repo_owner_url }}/{{ repo_name }}"
   when: false
 
 homepage_url:

@@ -39,6 +39,7 @@ classifiers = [
     "Programming Language :: Python :: {{ version }}",
     {% endif %}
 {% endfor %}
+    "Typing :: Typed"
 ]
 
 dependencies = []
@@ -54,6 +55,17 @@ dev = [
     "pytest-md-report",
     "covdefaults",
 ]
+
+docs = [
+    "mkdocs-material",
+    "mkdocstrings[python]",
+    "mkdocs-git-revision-date-localized-plugin",
+    "griffe-fieldz",
+    "griffe-warnings-deprecated",
+    "griffe-generics",
+    "griffe-inherited-method-crossrefs",
+]
+
 
     # https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#creating-executable-scripts
     [project.scripts]
@@ -141,14 +153,16 @@ extend-include = ["*.ipynb"]
         # === Convenience ===
         "CPY001", # Copyright notice at top of file
         "ISC001", # Checks for implicitly concatenated strings on a single line. -- Should not be used with formatter
-        "D105",   # Missing docstring in magic method
-        "D107",   # Missing docstring in `__init__`
         "D212",   # Multi-line docstring summary should start at the first line
         "TD002",  # Missing author in TODO; try: `TODO(<author_name>): ...` or `TODO @<author_name>: ...`
         "TD003",  # Missing issue link on the line following this TODO
         "TD004",  # Missing colon after TODO
-        "ANN401", # Dynamically typed expressions (typing.Any) are disallowed in
-        "RET504", # Unnecessary assignment to `...` before `return` statement
+        "FIX002",
+        # --- Trying out ---
+        # "D105",   # Missing docstring in magic method
+        # "D107",   # Missing docstring in `__init__`
+        # "ANN401", # Dynamically typed expressions (typing.Any) are disallowed in
+        # "RET504", # Unnecessary assignment to `...` before `return` statement
 
         # TODO: Comment out for production release
         "ERA001", # Found commented-out code
@@ -209,7 +223,7 @@ plugins = [
 omit = ["tools/*"]
 
 [tool.coverage.report]
-fail_under = 80
+fail_under = {{ coverage_threshold }}
 
 
 [tool.codespell]

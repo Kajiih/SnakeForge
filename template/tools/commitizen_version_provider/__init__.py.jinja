@@ -13,6 +13,7 @@ class AboutPyProvider(VersionProvider):
     """Get version from __about__.py, in the variable __version__."""
 
     def __init__(self, config: BaseConfig):
+        """Initialize provider with the appropriate attributes."""
         super().__init__(config)
         del config
         self.file_path = Path("src") / "{{ module_name }}" / "__about__.py"

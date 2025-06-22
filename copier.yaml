@@ -23,6 +23,8 @@ _jinja_extensions:
 ---
 !include copier/questions/misc.yaml
 ---
+!include copier/questions/socials.yaml
+---
 # global flags
 # !include copier/global_flags.yaml
 ---

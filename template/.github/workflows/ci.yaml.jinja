@@ -65,7 +65,6 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           {% endraw %}
 
-
       - name: 📊 Add test output reports to the job summary
         if: failure()
         run: |

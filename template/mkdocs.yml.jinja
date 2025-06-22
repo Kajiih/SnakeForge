@@ -1,0 +1,143 @@
+site_name: {{ project_name }}
+site_description: {{ project_description }}
+site_url: {{ documentation_url }}
+site_author: {{ author_fullname }}
+repo_url: {{ repo_url }}
+copyright: Copyright &copy; {{ copyright_year }} {{ author_fullname }}
+
+nav:
+  - Home: index.md
+  - API Reference: reference.md
+
+theme:
+  name: material
+  features:
+  - announce.dismiss
+  - content.action.edit
+  - content.action.view
+  - content.code.annotate
+  - content.code.copy
+  - content.tabs.link
+  - content.tooltips
+  - header.autohide
+  - navigation.indexes
+  - navigation.instant
+  - navigation.instant.progress
+  - navigation.sections  # TODO: Test
+  - navigation.tracking
+  - navigation.tabs
+  - navigation.top
+  - navigation.footer
+  - toc.follow
+  - search.highlight
+  - search.suggest
+  palette: # https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/#color-palette
+    - scheme: default
+      primary: deep purple
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Dark mode
+    - scheme: slate
+      primary: deep purple
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Light mode
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: {{ repo_owner_url }}
+      name: {{ repo_namespace }} on GitHub
+    {% if bluesky_url %}
+    - icon: simple/bluesky
+      link: {{ bluesky_url }}
+      name: Bluesky
+    {% endif %}
+    {% if linkedin_url %}
+    - icon: fontawesome/brands/linkedin
+      link: {{ linkedin_url }}
+      name: LinkedIn
+    {% endif %}
+    {% if youtube_url %}
+    - icon: fontawesome/brands/youtube
+      link: {{ youtube_url }}
+      name: YouTube
+    {% endif %}
+    {% if discord_url %}
+    - icon: simple/discord
+      link: {{ discord_url }}
+      name: Discord
+    {% endif %}
+    {% if x_twitter_url %}
+    - icon: fontawesome/brands/x-twitter
+      link: {{ x_twitter_url }}
+      name: Twitter/X
+    {% endif %}
+    {% if instagram_url %}
+    - icon: fontawesome/brands/instagram
+      link: {{ instagram_url }}
+      name: Instagram
+    {% endif %}
+    {% if facebook_url %}
+    - icon: fontawesome/brands/facebook
+      link: {{ facebook_url }}
+      name: Facebook
+    {% endif %}
+
+
+plugins:
+  - search
+  - mkdocstrings: # https://mkdocstrings.github.io/
+      handlers:
+        python:
+          paths: [src]
+          options:
+            show_symbol_type_heading: true
+            show_symbol_type_toc: true
+            members_order: alphabetical # source
+            summary: false
+            inherited_members: true # TODO: test
+            docstring_section_style: list  # table spacy
+            merge_init_into_class: true
+            docstring_options:
+              ignore_init_summary: true
+            show_if_no_docstring: true
+            separate_signature: false
+            show_overloads: true
+            signature_crossrefs: true
+            unwrap_annotated: false # TODO: test
+            extensions: # https://mkdocstrings.github.io/griffe/extensions/
+              # - griffe-fieldz # TODO: Test this over `griffe_pydantic``
+              - griffe_warnings_deprecated
+              - griffe_generics
+              # - griffe_inherited_method_crossrefs # TODO: test over the following 2 extensions
+              # - griffe-inherited-docstrings
+              # - docstring_inheritance.griffe
+  - git-revision-date-localized
+
+# https://squidfunk.github.io/mkdocs-material/setup/extensions/python-markdown/
+markdown_extensions:
+  - abbr
+  - admonition
+  - pymdownx.details
+  - def_list
+  - footnotes
+  - toc:
+      permalink: true
+  - tables
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+strict: true
+watch:
+  - src
+
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn

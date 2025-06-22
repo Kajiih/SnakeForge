@@ -32,5 +32,5 @@ cli_name: # TODO: Change default to remove numbers (or map them to text)
 
 documentation_url: # Computed
   type: str
-  default: "https://{{ package_name }}.readthedocs.io"
+  default: "https://{{ repo_namespace }}.github.io/{{ repo_name }}/"
   when: false

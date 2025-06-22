@@ -41,27 +41,6 @@ _tasks:
   # - command: .venv/bin/pre-commit run --all-files --hook-stage=manual || true
   #   when: "{{ _copier_operation == 'copy' }}"
   # TODO : Print hint to remind to activate the virtual environment (grep the output from uv venv above to have the correct command to use, or use the dedicated command if this feature request is accepted: https://github.com/astral-sh/uv/issues/14038)
-  # === PyPI Trusted Publisher Setup Instructions ===
-  - command: |
-      echo ""
-      echo "🔒 PyPI Trusted Publisher Setup Required:"
-      echo ""
-      echo "1. Go to PyPI Account Settings > Trusted Publishers: https://pypi.org/manage/account/publishing/"
-      echo "2. Go to the 'Add a new pending publisher' section and click on the `GitHub` tab"
-      echo "3. Fill in the details:"
-      echo "   - PyPI Project Name: {{ package_name }}"
-      echo "   - Owner: {{ repo_namespace }}"
-      echo "   - Repository name: {{ repo_name }}"
-      echo "   - Workflow name: publish.yaml"
-      echo "   - Environment name: pypi (recommended)"
-      echo ""
-      echo "4. Add the publisher"
-      echo ""
-      echo "⚠️ Important: This allows secure publishing from without storing API tokens!"
-      echo "📖 Docs: https://docs.pypi.org/trusted-publishers/"
-      echo ""
-    when: "{{ _copier_operation == 'copy' }}"
-
 
   # === Update ===
   - command:
