@@ -15,5 +15,4 @@ By default we use the plugin [mkdocstrings](https://mkdocstrings.github.io/) to 
 ### Mkdocstrings
 
 - Add [inventories](https://mkdocstrings.github.io/python/usage/#inventories) to referenced dependencies
-- Add `griffe-fieldz` extension when we found [why the extension module is not found](https://github.com/pyapp-kit/griffe-fieldz/issues/24)
 - Add `griffe_inherited_method_crossrefs` extension when we found [why the the griffe.exceptions module is not found](https://github.com/MatthewLeoLaporte/griffe-inherited-method-crossrefs/issues/18)
