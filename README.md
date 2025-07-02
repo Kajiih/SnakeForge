@@ -2,7 +2,7 @@
     <em>SnakeForge, the opinionated Python template that gives you what you need, and no more.</em>
 </p>
 
-# Your favorite template for Python projects 🐍
+# Your favorite template for Python 🐍
 
 ## ✨ Features
 
@@ -28,13 +28,13 @@
 
 ## 📋 Requirements
 
-You will need an accounts on:
+You will need accounts on:
 
 - [GitHub](https://github.com/) to host your repository
 - [PyPI](https://pypi.org/) to publish your project
 - [CodeCov](https://about.codecov.io/sign-up/) to check your project's tests and coverage
 
-Unsure the following dependencies are installed:
+Make sure the following dependencies are installed:
 
 - Python>=3.12
 - [Copier](https://copier.readthedocs.io/en/stable/) with [copier_templates_extensions](https://github.com/copier-org/copier-templates-extensions)
@@ -57,7 +57,13 @@ Unsure the following dependencies are installed:
 
 2. **Generate the Python project:**
 
-   TODO
+    We use [Jinja extensions](https://copier.readthedocs.io/en/stable/configuring/#jinja_extensions) and [tasks](https://copier.readthedocs.io/en/stable/configuring/#tasks), so you need to run the command with the [`--trust`](https://copier.readthedocs.io/en/stable/configuring/#unsafe) flag.
+
+    Check [tasks](/copier/tasks.yaml) and [extensions](/extensions.py) to make sure you trust the repository.
+
+    ```shell
+    copier copy --trust gh:Kajiih/SnakeForge <path_to_project>
+    ```
 
 3. **Setup the project**
 
@@ -74,21 +80,17 @@ Unsure the following dependencies are installed:
 - add license classifiers in `pyproject.tom`
 - Replace `hatch` with `uv` (when the build backend is feature complete)
 - use `ty` as type checker, yes we love [astral.sh](https://astral.sh/) stuff..!
-- us devcontainer
-- docs template with mkdocs, also check [mdbook](https://rust-lang.github.io/mdBook/)
+- use devcontainer
 - issue template
 - docker setup
 - app vs package
 - typedsettings and cyclopts with examples
-- pypi
 - [Changelog](https://keepachangelog.com/en/1.1.0/)
 - Add proper testing with [this](https://github.com/KyleKing/copier-template-tester/tree/main/docs)
 - Add profiles like [this](https://github.com/NLeSC/python-**template**)
-- Add proper messages
-- Replace `uv-dynamic-version` with the features from [commitizen](https://github.com/commitizen-tools/commitizen) (and also changelog)
+- Update messages
 - code embbedder and print result embedder in precommit hook
 - Replace plain tasks by some more practical task runner (invoke, etc)
-- Clean up template formatting (toml, etc)
 - Publish github workflow
 - Fix codecov test analytics not appearing: [issue](https://github.com/codecov/test-results-action/issues/126)
 - Documentation
