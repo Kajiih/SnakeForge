@@ -55,7 +55,7 @@ Make sure the following dependencies are installed:
     uv --version
     ```
 
-2. **Generate the Python project:**
+2. **Generate the Python project**
 
     We use [Jinja extensions](https://copier.readthedocs.io/en/stable/configuring/#jinja_extensions) and [tasks](https://copier.readthedocs.io/en/stable/configuring/#tasks), so you need to run the command with the [`--trust`](https://copier.readthedocs.io/en/stable/configuring/#unsafe) flag.
 
@@ -65,7 +65,7 @@ Make sure the following dependencies are installed:
     copier copy --trust gh:Kajiih/SnakeForge <path_to_project>
     ```
 
-3. **Setup the project**
+3. **Finish the project setup**
 
     Follow the instructions displayed at the end of the generation process to enable all features.
 
@@ -73,7 +73,7 @@ Make sure the following dependencies are installed:
 
 4. **Start coding your awesome project!**
 
-💡 Most of the time, if you want to update something that depends on an answer from the template (e.g., min python version, project description, etc), you better update the template with then new value so that it changes the value everywhere automatically.
+    💡 Most of the time, if you want to update something that depends on an answer from the template (e.g., min python version, project description, etc), you better [update the template](#update-your-project) with the new value so that it changes the value everywhere automatically.
 
 ### Roadmap
 
