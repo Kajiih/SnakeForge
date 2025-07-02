@@ -10,6 +10,8 @@ You can use [act](https://github.com/nektos/act) to test your GitHub actions loc
 
 - Lint and check format with `ruff`
 - Static type check with `basedpyright`
+- Run all tests with `pytest` on the minimal and maximal supported versions
+  - Coverage uploaded to `codecov`
 
 ### Publishing/Release
 
