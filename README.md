@@ -21,9 +21,9 @@
 - [✨ Features](#-features)
 - [📋 Requirements](#-requirements)
 - [🚀 Quickstart](#-quickstart)
-  - [Roadmap](#roadmap)
 - [Advanced Usage](#advanced-usage)
   - [Update your project](#update-your-project)
+- [Roadmap](#roadmap)
 - [Resources](#resources)
 
 ## 📋 Requirements
@@ -75,7 +75,21 @@ Make sure the following dependencies are installed:
 
     💡 Most of the time, if you want to update something that depends on an answer from the template (e.g., min python version, project description, etc), you better [update the template](#update-your-project) with the new value so that it changes the value everywhere automatically.
 
-### Roadmap
+    Check how to use specific features in [docs](/docs/).
+
+## Advanced Usage
+
+If you use this template often, try using [copier settings](https://copier.readthedocs.io/en/stable/settings/) to save time during the setup!
+
+### Update your project
+
+In your project's repository, run:
+
+```shell
+copier update --trust
+```
+
+## Roadmap
 
 - add license classifiers in `pyproject.tom`
 - Replace `hatch` with `uv` (when the build backend is feature complete)
@@ -98,20 +112,15 @@ Make sure the following dependencies are installed:
   - Add [versioning](https://squidfunk.github.io/mkdocs-material/setup/setting-up-versioning/)
   - (maybe) Add [Social cards](https://squidfunk.github.io/mkdocs-material/setup/setting-up-social-cards/)
 
-## Advanced Usage
-
-If you use this template often, try using [copier settings](https://copier.readthedocs.io/en/stable/settings/) to save time during the setup!
-
-### Update your project
-
-TODO
-
 ## Resources
-
-Check: <https://blog.dusktreader.dev/2025/04/06/bootstrapping-python-projects-with-copier/#automating-github-deployment-with-tasks>
 
 Based on
 
 - <https://github.com/serious-scaffold/ss-python/tree/main>
 - <https://github.com/audreyfeldroy/cookiecutter-pypackage>
 - <https://github.com/DiamondLightSource/python-copier-template>
+- <https://github.com/pawamoy/copier-uv>
+- <https://github.com/superlinear-ai/substrate>
+- <https://github.com/Tecnativa/doodba-copier-template>
+- <https://github.com/NLeSC/python-template>
+- <https://github.com/browniebroke/pypackage-template>
